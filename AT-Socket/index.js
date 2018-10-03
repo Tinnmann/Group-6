@@ -1,26 +1,56 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var port = process.env.PORT || 3000;
+// $.getScript("database.js");
+var express = require('express');
+var socket = require('socket.io');
 
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+//Application setup
+var app = express();
+var server = app.listen(3000,function(){
+    console.log('listening to requests on port 3000');
 });
+//static files
+// app.use(express.static('public/'));
 
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
+//socket setup
+var io = socket(server);
 
-});
+io.on('connection',function(socket){
+    console.log('connection made', socket.id);
+    //AT-Messenger
+        socket.on('login',function(data){
+            socket.emit('response',login(data));
+        })
+    //AT-manager
 
-io.on('connection', function(socket){
-    socket.on('chat message', function(msg){
-        console.log(msg);
+
+
+    socket.on('chat',function(data){
+        io.sockets.emit('chat',data);
     });
 
+    socket.on('typing',function(data){
+        socket.broadcast.emit('typing',data);
+    });
 });
 
-http.listen(port, function(){
-  console.log('listening on *:' + port);
-});
+
+
+
+
+//database
+function login(data){
+    var status = 'rejected',
+        username = data.username,
+        userid = null;
+
+    if(data.username == 'zane.smith1@yahoo.com' && data.password == '123'){
+        status = 'accepted';
+        username = data.username;
+        userid = 3;
+
+    }
+    return {
+        status: status,
+        username: username,
+        userid: userid
+    };
+}
