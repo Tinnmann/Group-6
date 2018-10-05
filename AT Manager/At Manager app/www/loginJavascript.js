@@ -1,5 +1,5 @@
 //making a connection
-var socket = io.connect('192.168.0.63:3000');
+var socket = io.connect('192.168.0.63:4000');
 
 // getting dom
 var username = document.getElementById('username'),

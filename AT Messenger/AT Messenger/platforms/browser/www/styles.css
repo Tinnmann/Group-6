@@ -1,0 +1,31 @@
+.bodyBackground {
+    background-image: url("images/backgroundFade.jpg");
+}
+
+.logo {
+    width: 200px;
+}
+
+.btn-primary {
+    border-radius: 10px;
+    width: inherit;
+    background-color: #ddedf5;
+    border: none;
+    color: skyblue;
+    font-size: 18px;
+
+}
+
+.form-control {
+    background: none;
+    border-radius: 0px;
+    border: none;
+    border-top: solid white 1px;
+    color: white;
+    font-size: 18px
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background: none;
+}
