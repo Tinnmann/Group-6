@@ -1,3 +1,21 @@
+#navbarBg {
+    padding-top: 70px;
+    background: #8fa2de;
+}
+
+.nav-item button {
+    border: none;
+    background: none;
+    font-size: 40px;
+    padding: 0px;
+    color: white;
+    margin-bottom: -10px;
+}
+
+#active {
+    border-bottom: solid white 5px;
+}
+
 .bodyBackground {
     background-image: url("images/backgroundFade.jpg");
 }
@@ -13,7 +31,6 @@
     border: none;
     color: skyblue;
     font-size: 18px;
-
 }
 
 .form-control {
@@ -28,4 +45,25 @@
 input[type=text]:focus,
 input[type=password]:focus {
     background: none;
+}
+
+
+.chat {
+    border-bottom: solid #8fa2de 2px;
+}
+
+.contactName {
+    font-weight: bold;
+}
+
+#registerDiv {
+    padding-top: 80px;
+}
+
+#register {
+    border-radius: 10px;
+    background-color: #6eaec4;
+    border: none;
+    color: #50738b;
+    font-size: 18px;
 }
