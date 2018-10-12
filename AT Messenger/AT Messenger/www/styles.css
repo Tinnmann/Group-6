@@ -33,6 +33,14 @@
     font-size: 18px;
 }
 
+.mainButton {
+    height: 60px;
+    border-radius: 15px;
+    background: #aabcf7;
+    color: white;
+    -webkit-appearance: none;
+}
+
 .form-control {
     background: none;
     border-radius: 0px;
@@ -62,8 +70,13 @@ input[type=password]:focus {
 
 #register {
     border-radius: 10px;
-    background-color: #6eaec4;
     border: none;
     color: #50738b;
     font-size: 18px;
+}
+
+hr {
+    order: none;
+    height: 2px;
+    background-color: #8fa2de;
 }
