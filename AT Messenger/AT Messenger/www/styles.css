@@ -55,6 +55,14 @@ input[type=password]:focus {
     background: none;
 }
 
+.profileField {
+    border: none;
+    background: none;
+    font-size: 110%;
+    padding: 0px;
+    color: black;
+    margin-bottom: -10px;
+}
 
 .chat {
     border-bottom: solid #8fa2de 2px;
