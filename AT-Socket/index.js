@@ -49,7 +49,7 @@ con.connect(function (err) {
         });
 
         socket.on('register', function (data) {
-            var status = 'user exists',
+            var status = 'error',
                 name = data.name,
                 surname = data.surname,
                 cellNumber = data.cellNumber,
@@ -57,16 +57,25 @@ con.connect(function (err) {
                 password1 = data.password1;
 
             console.log(data);
-            // con.query("SELECT * FROM login WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
-            //     if (err) {
-            //         console.log(err);
-            //     } else if (result.length) {
-            //         status = "accepted";
-            //     } else {
-            //         console.log("Query didn't return any results.");
-            //     }
-            // socket.emit('response',{status: status, username: username ,password: password});
-            // });
+            con.query("SELECT * FROM login WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = 'user exists';
+                } else {
+                    var sql = "INSERT INTO customers (name, address) VALUES ('Company Inc', 'Highway 37')";
+                    con.query(sql, function (err, result) {
+                        if (err) {
+                            throw err;
+                        }else if(result.length){
+                            status = 'inserted';
+                        } else{
+                            status = 'insert error';
+                        }
+                    });
+                }
+                socket.emit('insertResponse',{status: status, name: name ,email: email});
+            });
         });
 
         socket.on('chat', function (data) {
