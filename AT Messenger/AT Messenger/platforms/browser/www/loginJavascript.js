@@ -8,15 +8,15 @@ var username = document.getElementById('username'),
     login = document.getElementById('login');
 
 //emit event
-    //login page
-    login.addEventListener('click',function(){
-        socket.emit('login',{
-            username: username.value,
-            password: password.value,
-        });
+//login page
+login.addEventListener('click',function(){
+    socket.emit('login',{
+        username: username.value,
+        password: password.value,
     });
+});
 
-    //register page
+//register page
 //original
 // message.addEventListener('keypress',function(){
 //     socket.emit('typing', handle.value);
@@ -30,15 +30,15 @@ var username = document.getElementById('username'),
 
 
 //listen for events
-    //login
-    socket.on('response',function (data) {
-            if(data.status == 'accepted'){
-                window.location = "layout.html";
-            }else{
-                alert('status :'+data.status + ' User :' + data.username);
-            }
+//login
+socket.on('response',function (data) {
+    if(data.status == 'accepted'){
+        window.location = "layout.html";
+    }else{
+        alert('status :'+data.status + ' User :' + data.username);
+    }
 
-        });
+});
 socket.on('chat',function(data){
     feedback.innerHTML = "";
     output.innerHTML += '<p><strong>' + data.handle + ': <br/></strong>' + data.message + '</p>';

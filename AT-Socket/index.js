@@ -7,75 +7,91 @@ var con = mysql.createConnection({
     password: "",
     database: "at"
 });
-con.connect(function(err) {
+con.connect(function (err) {
     if (err) throw err;
-function loginCheck($username, $password){
-    var status = 'rejected',
-        username = $username,
-        password = $password;
-        con.query("SELECT * FROM login WHERE email = '"+$username+ "' AND password ='" + $password + "'", function (err, result, fields) {
-            if (err) {
-
-            }else{
-                 status = 'accepted';
-                 username = result[0].email;
-                 password = result[0].password;
-            }
-
-            // return [result1: status,];
-        });
-}
-
-
 // $.getScript("database.js");
-var express = require('express');
-var socket = require('socket.io');
+    var express = require('express');
+    var socket = require('socket.io');
+    var manSocket = require('socket.io');
 
 //Application setup
-var app = express();
-var server = app.listen(4000,function(){
-    console.log('listening to requests on port 4000');
-});
+    var app = express();
+    var server = app.listen(4000, function () {
+        console.log('listening to requests on port 4000');
+    });
+    var Manserver = app.listen(4001, function () {
+        console.log('listening to requests on port 4001');
+    });
 //static files
 // app.use(express.static('public/'));
 
 //socket setup
-var io = socket(server);
+    var io = socket(server);
+    var manio = manSocket(Manserver);
 
-io.on('connection',function(socket){
-    console.log('connection made', socket.id);
-    //AT-Messenger
-        socket.on('login',function(data){
-            socket.emit('response',login(data));
+    io.on('connection', function (socket) {
+        console.log('Client connection made', socket.id);
+        //AT-Messenger
+        socket.on('login', function (data) {
+            var status = 'rejected',
+                username = data.username,
+                password = data.password;
+            con.query("SELECT * FROM login WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                } else {
+                    console.log("Query didn't return any results.");
+                }
+                socket.emit('response',{status: status, username: username ,password: password});
+            });
         });
-    //AT-manager
 
+        socket.on('register', function (data) {
+            var status = 'user exists',
+                name = data.name,
+                surname = data.surname,
+                cellNumber = data.cellNumber,
+                email = data.email,
+                password1 = data.password1;
 
+            console.log(data);
+            // con.query("SELECT * FROM login WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
+            //     if (err) {
+            //         console.log(err);
+            //     } else if (result.length) {
+            //         status = "accepted";
+            //     } else {
+            //         console.log("Query didn't return any results.");
+            //     }
+            // socket.emit('response',{status: status, username: username ,password: password});
+            // });
+        });
 
-    socket.on('chat',function(data){
-        io.sockets.emit('chat',data);
+        socket.on('chat', function (data) {
+            io.sockets.emit('chat', data);
+        });
+
+        socket.on('typing', function (data) {
+            socket.broadcast.emit('typing', data);
+        });
+
     });
 
-    socket.on('typing',function(data){
-        socket.broadcast.emit('typing',data);
+    manio.on('connection', function (manSocket) {
+        console.log('manager connection made', manSocket.id);
+        //AT-Messenger
+        manSocket.on('login', function (data) {
+            manSocket.emit('response', login(data));
+        });
+
+        manSocket.on('chat', function (data) {
+            io.sockets.emit('chat', data);
+        });
+
+        manSocket.on('typing', function (data) {
+            socket.broadcast.emit('typing', data);
+        });
     });
-});
-
-
-
-
-
-
-function login(data){
-    // var results = loginCheck(data.username , data.password);
-    // console.log(results);
-    console.log(data.username + data.password);
-    if(data.username == 'zane' && data.password == 123 ){
-        return{ status: 'accepted',
-                username: 'zane',
-                password: 123
-        };
-    }
-}
-
 });
