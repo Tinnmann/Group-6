@@ -56,14 +56,3 @@ input[type=password]:focus {
 .contactName {
     font-weight: bold;
 }
-
-.sender {
-    border-radius: 10px;
-    background-color: #8192fa;
-}
-
-.receiver {
-    color: #305fa5;
-    border-radius: 10px;
-    background-color: #aec5f4;
-}

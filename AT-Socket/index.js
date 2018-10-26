@@ -92,19 +92,7 @@ con.connect(function (err) {
         console.log('manager connection made', manSocket.id);
         //AT-Messenger
         manSocket.on('login', function (data) {
-            var status = 'rejected',
-                username = data.username,
-                password = data.password;
-            con.query("SELECT * FROM login WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
-                if (err) {
-                    console.log(err);
-                } else if (result.length) {
-                    status = "accepted";
-                } else {
-                    console.log("Query didn't return any results.");
-                }
-                socket.emit('response',{status: status, username: username ,password: password});
-            });
+            manSocket.emit('response', login(data));
         });
 
         manSocket.on('chat', function (data) {
