@@ -21,7 +21,7 @@ Starting Sequence
         nodemon
         {D:\Programs\Xampp\htdocs\Group-6\AT-Socket>nodemon}
     Step 3 Start Manager socket (Terminal 2)
-        cd AT Manager\At Manager
+        cd AT Manager\At Manager app
         phonegap serve --port 3000
         {D:\Programs\Xampp\htdocs\Group-6\AT Manager\At Manager app>phonegap serve --port 3000}
     Step 4 Start Messenger socket (Terminal 3)
