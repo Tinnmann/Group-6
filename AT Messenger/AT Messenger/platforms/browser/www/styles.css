@@ -1,0 +1,106 @@
+#navbarBg {
+    padding-top: 70px;
+    background: #8fa2de;
+}
+
+.nav-item button {
+    border: none;
+    background: none;
+    font-size: 40px;
+    padding: 0px;
+    color: white;
+    margin-bottom: -10px;
+}
+
+.active {
+    border-bottom: solid white 5px;
+}
+
+.bodyBackground {
+    background-image: url("images/backgroundFade.jpg");
+}
+
+.logo {
+    width: 200px;
+}
+
+.btn-primary {
+    border-radius: 10px;
+    width: inherit;
+    background-color: #ddedf5;
+    border: none;
+    color: skyblue;
+    font-size: 18px;
+}
+
+.mainButton {
+    height: 60px;
+    border-radius: 15px;
+    background: #aabcf7;
+    color: white;
+    -webkit-appearance: none;
+}
+
+.form-control {
+    background: none;
+    border-radius: 0px;
+    border: none;
+    border-top: solid white 1px;
+    color: white;
+    font-size: 18px
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background: none;
+}
+
+.profileField {
+    border: none;
+    background: none;
+    font-size: 110%;
+    padding: 0px;
+    color: black;
+    margin-bottom: -10px;
+}
+
+.chat {
+    border-bottom: solid #8fa2de 2px;
+}
+
+.contactName {
+    font-weight: bold;
+}
+
+#registerDiv {
+    padding-top: 80px;
+}
+
+#register {
+    border-radius: 10px;
+    border: none;
+    color: #50738b;
+    font-size: 18px;
+}
+
+hr {
+    order: none;
+    height: 2px;
+    background-color: #8fa2de;
+}
+
+
+.sender {
+    border-radius: 10px;
+    background-color: #8192fa;
+}
+
+.receiver {
+    color: #305fa5;
+    border-radius: 10px;
+    background-color: #aec5f4;
+}
+
+#loginError {
+    color: red;
+}
