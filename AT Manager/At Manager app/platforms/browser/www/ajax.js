@@ -5,12 +5,21 @@ var admin = document.getElementById('admin'),
 //click events
     admin.addEventListener('click',function(){
         adminPage();
+        document.getElementById('chatTab').classList.remove("active");
+        document.getElementById('calTab').classList.remove("active");
+        document.getElementById('adminTab').classList.add("active");
     });
     chats.addEventListener('click',function(){
         chatsPage();
+        document.getElementById('adminTab').classList.remove("active");
+        document.getElementById('calTab').classList.remove("active");
+        document.getElementById('chatTab').classList.add("active");
     });
     calender.addEventListener('click',function(){
         calenderPage();
+        document.getElementById('adminTab').classList.remove("active");
+        document.getElementById('chatTab').classList.remove("active");
+        document.getElementById('calTab').classList.add("active");
     });
 //ajax requests
     function chatsPage(){

@@ -12,7 +12,7 @@
     margin-bottom: -10px;
 }
 
-#active {
+.active {
     border-bottom: solid white 5px;
 }
 
