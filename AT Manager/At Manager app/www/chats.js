@@ -40,6 +40,8 @@ socket.on('chatPopulate',function (data) {
 function test(id){
     $.ajax({
         url: 'conversation.html',
+        type: 'GET',
+        data: {id : id},
         datatype: 'json',
         success: function(data){
             $('#pages').html(data);
