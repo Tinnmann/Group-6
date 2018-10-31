@@ -184,7 +184,7 @@ con.connect(function (err) {
             });
         });
         manSocket.on('contactsLoader',function(data){
-            con.query("SELECT * FROM client ORDER BY client_name DESC", function (err, result, fields) {
+            con.query("SELECT * FROM client ORDER BY client_name, surname, email", function (err, result, fields) {
                 if (err) {
                     console.log(err);
                 } else if (result.length) {
@@ -194,6 +194,18 @@ con.connect(function (err) {
                     console.log("Query didn't return any results.");
                 }
                 // socket.emit('response',{status: status, username: username ,password: password});
+            });
+        });
+        manSocket.on('chatLoad',function(data){
+            con.query("SELECT * FROM chat ORDER BY date_set DESC", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    manSocket.emit('chatPopulate',{result: result});
+                } else {
+                    console.log("Query didn't return any results.");
+                }
             });
         });
     });
