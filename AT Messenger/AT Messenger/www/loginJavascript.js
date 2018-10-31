@@ -25,7 +25,7 @@ var username = document.getElementById('username'),
             if(data.status == 'accepted'){
                 window.location = "layout.html";
             }else{
-                alert('status :'+data.status + ' User :' + data.username);
+                document.getElementById("loginError").innerHTML = 'Username Or Password Incorrect';
             }
 
         });

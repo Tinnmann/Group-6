@@ -100,3 +100,7 @@ hr {
     border-radius: 10px;
     background-color: #aec5f4;
 }
+
+#loginError {
+    color: red;
+}
