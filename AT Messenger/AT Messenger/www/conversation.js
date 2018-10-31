@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4001');
+var socket = io.connect('192.168.0.63:4000');
 window.onload = test();
 var send = document.getElementById('send');
 
@@ -29,14 +29,14 @@ function parseURLParams(url) {
         parms[n].push(nv.length === 2 ? v : null);
     }
     return parms['id'][0];
-}
+};
 socket.on('conversePopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("converseWrapper").innerHTML = '';
     }
     for(i = 0; i < data.result.length; i++){
         var div = document.createElement('div');
-        if(data.result[i]['sender'] == 1){
+        if(data.result[i]['sender'] == 0){
             div.innerHTML = '<div class="row">\n' +
                 '                <div class="receiver col-5 p-5">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +

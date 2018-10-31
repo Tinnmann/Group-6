@@ -1,35 +1,27 @@
 <div style="padding-top: 70px">
-    <div class="container-fluid p-3" style="background-color: #8fa2de; position: fixed">
+    <div class="container-fluid p-3" style="background-color: #8fa2de; position: fixed; z-index:99;">
         <div class="col-12">
             <button id="scheduleCallout" class="btn btn-primary" style="border-radius: 10px;color: #8fa2de;background-color: #d8defa">Schedule Callout</button>
         </div>
     </div>
-
-    <div style="padding: 25px;padding-top: 100px">
-        <div>
-            <div class="row">
-                <div class="col"></div>
-                <div class="sender col-6 p-5">
-                    <p>Hello</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="receiver col-5 p-5">
-                    <p>Hi, can I get a quote on a new alarm?</p>
-                </div>
-                <div class="col-6"></div>
-            </div>
+    <div style="padding: 25px;padding-top: 100px; padding-bottom: 100px;">
+        <div id="converseWrapper">
         </div>
     </div>
 </div>
+<div>
+
+</div>
 
 <div class="container-fluid p-3 fixed-bottom" style="background-color: #8fa2de">
-    
-    <div class="btn-group w-100" role="group">
-        <textarea class="btn-primary w-75" style="background-color: #white;color:black;border-top-right-radius: 0 0%;border-bottom-right-radius: 0 0%;"></textarea>
-        <button id="send" class="btn btn-primary w-25" style="color: #8192fa;border-left: solid #8fa2de 2px"><ion-icon name="send"></ion-icon></button>
+    <div class="row">
+        <div class="col-10">
+            <textarea id="textMessage" class="btn-primary" style="background-color: #white;color:black">
+    </textarea>
+        </div>
+        <div class="col-2">
+            <button id="send" class="btn btn-primary" style="color: #8192fa"><ion-icon name="send"></ion-icon></button>
+        </div>
     </div>
-    
 </div>
 <script src="/conversation.js"></script>

@@ -36,6 +36,7 @@ con.connect(function (err) {
             var status = 'rejected',
                 username = data.username,
                 password = data.password;
+            console.log('username : ' + username + ' password : ' + password);
             con.query("SELECT * FROM client WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
                 if (err) {
                     console.log(err);
@@ -64,18 +65,14 @@ con.connect(function (err) {
                     status = 'user exists';
                     socket.emit('insertResponse',{status: status, name: name ,email: email});
                 } else {
-                    var sql = "INSERT INTO client (client_name , surname, email ,address ,password ) VALUES ('"+name+"','"+surname+"','"+cellNumber+"','"+email+"','"+password1+"')";
+                    var sql = "INSERT INTO client (client_name , surname, email ,address ,password ) VALUES ('"+name+"','"+surname+"','"+email+"','"+cellNumber+"','"+password1+"')";
                     con.query(sql, function (err, result) {
                         if (err) {
                             console.log(err);
                             status = 'insert error';
                         } else{
                             status = 'inserted';
-                            // socket.emit('insertResponse',{status: status, name: name ,email: email});
-                            console.log(status + "insert test 2");
                         }
-                        console.log(status + "insert test 3");
-                        // socket.emit('insertResponse',{status: status, name: name ,email: email});
                     });
                 }
             });
@@ -163,6 +160,38 @@ con.connect(function (err) {
                 }
             });
         });
+        socket.on('converse',function(data){
+            console.log(data.chatId);
+            var chatId = data.chatId;
+            con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    console.log('query accepted');
+                    socket.emit('conversePopulate',{result: result});
+                } else {
+                    console.log("Query didn't return any results.");
+                    console.log(result);
+                }
+            });
+
+        });
+        socket.on('insertMessage',function(data){
+            console.log('hello');
+            console.log(data.chatId);
+            var chatId = data.chatId;
+            var message = data.message;
+            var sql = "INSERT INTO message (message,chatID,sender) VALUES ('"+message+"','"+chatId+"', '1')";
+            con.query(sql, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    status = 'insert error';
+                } else{
+                    status = 'inserted';
+                }
+            });
+        });
     });
 
     manio.on('connection', function (manSocket) {
@@ -207,6 +236,78 @@ con.connect(function (err) {
                     console.log("Query didn't return any results.");
                 }
             });
+            manSocket.on('converse',function(data){
+                console.log(data.chatId);
+                var chatId = data.chatId;
+                con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
+                    if (err) {
+                        console.log(err);
+                    } else if (result.length) {
+                        status = "accepted";
+                        console.log('query accepted');
+                        manSocket.emit('conversePopulate',{result: result});
+                    } else {
+                        console.log("Query didn't return any results.");
+                        console.log(result);
+                    }
+                });
+
+            });
+            manSocket.on('insertMessage',function(data){
+                console.log('hello');
+                console.log(data.chatId);
+                var chatId = data.chatId;
+                var message = data.message;
+                var sql = "INSERT INTO message (message,chatID,sender) VALUES ('"+message+"','"+chatId+"', '0')";
+                con.query(sql, function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        status = 'insert error';
+                    } else{
+                        status = 'inserted';
+                    }
+                });
+            });
+        });
+        manSocket.on('converse',function(data){
+            console.log(data.chatId);
+            var chatId = data.chatId;
+            con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    console.log('query accepted');
+                    manSocket.emit('conversePopulate',{result: result});
+                } else {
+                    console.log("Query didn't return any results.");
+                    console.log(result);
+                }
+            });
+
+        });
+        manSocket.on('insertMessage',function(data){
+            console.log('hello');
+            console.log(data.chatId);
+            var chatId = data.chatId;
+            var message = data.message;
+            var sql = "INSERT INTO message (message,chatID,sender) VALUES ('"+message+"','"+chatId+"', '0')";
+            con.query(sql, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    status = 'insert error';
+                } else{
+                    status = 'inserted';
+                }
+            });
+            // con.query("UPDATE chat SET slur = '"+message+"' , sent = 'manager'  WHERE clientID  = '"+chatId+"'", function (err, result) {
+            //         if (err) {
+            //             console.log(err);
+            //         } else{
+            //
+            //         }
+            //     });
+
         });
     });
 });

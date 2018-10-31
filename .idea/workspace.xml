@@ -15,95 +15,59 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="admin.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/admin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="73" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="73" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="contacts.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/contacts.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calender.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/calender.html">
+      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/register.html">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="chats.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/chats.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="22" selection-end-column="14" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="142">
+              <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="chats.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/chats.js">
+      <file leaf-file-name="loginJavascript.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/loginJavascript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+            <state relative-caret-position="142">
+              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajax.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/ajax.js">
+      <file leaf-file-name="profile.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
+            <state relative-caret-position="296">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/view.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="38" />
+            <state relative-caret-position="595">
+              <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conversation.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.html">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="conversation.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-            </state>
+            <state relative-caret-position="-952" />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AT-Socket/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="198" column="47" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
+            <state relative-caret-position="-697">
+              <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="89" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -117,6 +81,13 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>chatLoad</find>
+      <find>cons</find>
+      <find>login</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -144,7 +115,6 @@
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/styles.css" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/view.html" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/calender.html" />
-        <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/index.html" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/styles.css" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/register.html" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/loginJavascript.js" />
@@ -154,12 +124,9 @@
         <option value="$PROJECT_DIR$/AT-Socket/public/login.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/index.html" />
-        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/index.html" />
-        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/loginJavascript.js" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/register.html" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/registerJavascript.js" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/log.html" />
-        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/view.html" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/logTicket.js" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.html" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/layout.html" />
@@ -167,17 +134,23 @@
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/ajax.js" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/mainajax.js" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/profile.html" />
-        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/viewTicket.js" />
         <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.js" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/layout.html" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/loginJavascript.js" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/admin.html" />
-        <option value="$PROJECT_DIR$/AT-Socket/index.js" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/contacts.js" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/chats.html" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/chats.js" />
-        <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.html" />
+        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/view.html" />
+        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/viewTicket.js" />
         <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.js" />
+        <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.html" />
+        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/conversation.html" />
+        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/conversation.js" />
+        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/index.html" />
+        <option value="$PROJECT_DIR$/AT Messenger/AT Messenger/www/loginJavascript.js" />
+        <option value="$PROJECT_DIR$/AT-Socket/index.js" />
+        <option value="$PROJECT_DIR$/AT Manager/At Manager app/www/index.html" />
       </list>
     </option>
   </component>
@@ -283,96 +256,6 @@
       <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/node_modules/cordova-browser/node_modules/xmlbuilder/package.json" />
       <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/node_modules/cordova-browser/node_modules/xmldom/package.json" />
       <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/node_modules/cordova-browser/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/abbrev/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/accepts/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/ansi-regex/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/ansi-styles/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/ansi/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/array-flatten/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/balanced-match/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/base64-js/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/big-integer/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/body-parser/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/bplist-parser/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/brace-expansion/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/bytes/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/chalk/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/compressible/node_modules/mime-db/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/compressible/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/compression/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/concat-map/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/content-disposition/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/content-type/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/cookie-signature/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/cookie/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/cordova-common/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/cordova-registry-mapper/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/cordova-serve/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/debug/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/depd/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/destroy/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/ee-first/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/elementtree/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/encodeurl/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/escape-html/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/escape-string-regexp/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/etag/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/express/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/finalhandler/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/forwarded/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/fresh/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/glob/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/has-ansi/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/http-errors/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/iconv-lite/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/inflight/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/inherits/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/ipaddr.js/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/is-wsl/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/media-typer/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/merge-descriptors/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/methods/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/mime-db/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/mime-types/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/mime/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/minimatch/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/ms/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/negotiator/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/nopt/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/on-finished/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/on-headers/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/once/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/opn/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/parseurl/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/path-is-absolute/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/path-to-regexp/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/plist/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/proxy-addr/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/q/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/qs/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/range-parser/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/raw-body/node_modules/depd/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/raw-body/node_modules/http-errors/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/raw-body/node_modules/setprototypeof/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/raw-body/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/safe-buffer/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/sax/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/send/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/serve-static/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/setprototypeof/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/shelljs/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/statuses/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/strip-ansi/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/supports-color/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/type-is/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/underscore/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/unorm/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/unpipe/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/utils-merge/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/vary/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/wrappy/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/xmlbuilder/package.json" />
-      <path value="$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/cordova/node_modules/xmldom/package.json" />
       <path value="$PROJECT_DIR$/AT-Socket/package.json" />
       <path value="$PROJECT_DIR$/hello world/Test/platforms/browser/cordova/node_modules/adm-zip/package.json" />
       <path value="$PROJECT_DIR$/hello world/Test/platforms/browser/cordova/node_modules/cordova-serve/node_modules/chalk/node_modules/ansi-styles/node_modules/color-convert/package.json" />
@@ -476,9 +359,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="20" />
-    <option name="width" value="1440" />
-    <option name="height" value="875" />
+    <option name="x" value="950" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -516,24 +399,6 @@
               <item name="At Manager app" type="462c0819:PsiDirectoryNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Group-6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Group-6" type="462c0819:PsiDirectoryNode" />
-              <item name="AT Messenger" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Group-6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Group-6" type="462c0819:PsiDirectoryNode" />
-              <item name="AT Messenger" type="462c0819:PsiDirectoryNode" />
-              <item name="AT Messenger" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Group-6" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Group-6" type="462c0819:PsiDirectoryNode" />
-              <item name="AT Messenger" type="462c0819:PsiDirectoryNode" />
-              <item name="AT Messenger" type="462c0819:PsiDirectoryNode" />
-              <item name="www" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -543,7 +408,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AGSL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ITSP300/backup 9/Group-6" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -613,17 +478,19 @@
       <workItem from="1540877938349" duration="9599000" />
       <workItem from="1540912350125" duration="1428000" />
       <workItem from="1540970844507" duration="8467000" />
+      <workItem from="1541005880575" duration="1191000" />
+      <workItem from="1541007103501" duration="4995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91743000" />
+    <option name="totallyTimeSpent" value="97929000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.497151" visible="true" weight="0.1738255" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.497151" visible="true" weight="0.1785235" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
@@ -632,7 +499,7 @@
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.34188035" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.035612535" />
       <window_info id="Favorites" order="2" sideWeight="0.502849" side_tool="true" weight="0.12080537" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39933994" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -656,7 +523,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Just added few things." />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/main.html" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/styles.css" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/view.html" />
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/styles.css" />
@@ -705,18 +571,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/register.js" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/config.xml" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/conversation.html" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/index.html" />
     <entry file="file://$PROJECT_DIR$/hello world/Test/plugins/cordova-plugin-file-transfer/www/blackberry10/.jshintrc" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/index.html" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/registerJavascript.js" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/ajax.js" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/mainajax.js" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.html" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/logTicket.js" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/loginJavascript.js" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/layout.html" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.js" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/platforms/browser/www/profile.html" />
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/platforms/browser/www/loginJavascript.js" />
     <entry file="file://$PROJECT_DIR$/AT-Socket/node_modules/mysql/lib/protocol/sequences/Query.js">
@@ -726,101 +586,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/index.html" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/loginJavascript.js" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/main.html" />
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/log.html" />
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/layout.html" />
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/loginJavascript.js" />
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/register.html" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="255">
-            <caret line="24" column="8" lean-forward="true" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="34" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/viewTicket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AT-Socket/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="198" column="47" selection-start-line="198" selection-start-column="47" selection-end-line="198" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/calender.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/contacts.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/admin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="73" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="73" />
+          <caret line="5" column="73" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/ajax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="25" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/chats.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="8" lean-forward="true" selection-start-line="2" selection-start-column="8" selection-end-line="22" selection-end-column="14" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/chats.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/view.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="204">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="12" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="290">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/contacts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="31" column="51" selection-start-line="31" selection-start-column="51" selection-end-line="31" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/chats.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="39" selection-start-line="39" selection-end-line="52" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/viewTicket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="95" lean-forward="true" selection-start-line="17" selection-start-column="95" selection-end-line="17" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/conversation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="26" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/conversation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="31" selection-start-column="31" selection-end-column="31" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/conversation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="255">
+            <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="34" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/registerJavascript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/register.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="37" column="61" lean-forward="true" selection-start-line="37" selection-start-column="61" selection-end-line="37" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/loginJavascript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="142">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT-Socket/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-697">
+          <caret line="88" column="17" lean-forward="true" selection-start-line="88" selection-start-column="17" selection-end-line="89" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Manager/At Manager app/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="10" lean-forward="true" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AT Messenger/AT Messenger/www/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-952" />
       </provider>
     </entry>
   </component>

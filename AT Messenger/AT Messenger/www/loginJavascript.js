@@ -9,6 +9,7 @@ var username = document.getElementById('username'),
 
 // page events
     regButton.addEventListener('click', function(){
+
         window.location = "layout.html";
     });
 
