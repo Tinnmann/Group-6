@@ -29,7 +29,7 @@ logTicketButton.addEventListener('click', function(){
         name : 'john',
     });
     }else{
-        
+
     }
 
 });

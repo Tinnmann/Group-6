@@ -28,7 +28,6 @@ con.connect(function (err) {
 //socket setup
     var io = socket(server);
     var manio = manSocket(Manserver);
-
     io.on('connection', function (socket) {
         console.log('Client connection made', socket.id);
         //AT-Messenger
@@ -48,7 +47,6 @@ con.connect(function (err) {
                 socket.emit('response',{status: status, username: username ,password: password});
             });
         });
-
         socket.on('register', function (data) {
             // console.log('test');
             var status = 'error default',
@@ -190,6 +188,13 @@ con.connect(function (err) {
                     status = 'insert error';
                 } else{
                     status = 'inserted';
+                    con.query("UPDATE chat SET slur = '"+message+"' , date_set = CURRENT_TIMESTAMP WHERE chatID  = '"+chatId+"'", function (err, result) {
+                        if (err) {
+                            console.log(err);
+                        } else{
+                            console.log('updated');
+                        }
+                    });
                 }
             });
         });
@@ -237,38 +242,6 @@ con.connect(function (err) {
                     console.log("Query didn't return any results.");
                 }
             });
-            manSocket.on('converse',function(data){
-                console.log(data.chatId);
-                var chatId = data.chatId;
-                con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
-                    if (err) {
-                        console.log(err);
-                    } else if (result.length) {
-                        status = "accepted";
-                        console.log('query accepted');
-                        manSocket.emit('conversePopulate',{result: result});
-                    } else {
-                        console.log("Query didn't return any results.");
-                        console.log(result);
-                    }
-                });
-
-            });
-            manSocket.on('insertMessage',function(data){
-                console.log('hello');
-                console.log(data.chatId);
-                var chatId = data.chatId;
-                var message = data.message;
-                var sql = "INSERT INTO message (message,chatID,sender) VALUES ('"+message+"','"+chatId+"', '0')";
-                con.query(sql, function (err, result) {
-                    if (err) {
-                        console.log(err);
-                        status = 'insert error';
-                    } else{
-                        status = 'inserted';
-                    }
-                });
-            });
         });
         manSocket.on('converse',function(data){
             console.log(data.chatId);
@@ -288,8 +261,6 @@ con.connect(function (err) {
 
         });
         manSocket.on('insertMessage',function(data){
-            console.log('hello');
-            console.log(data.chatId);
             var chatId = data.chatId;
             var message = data.message;
             var sql = "INSERT INTO message (message,chatID,sender) VALUES ('"+message+"','"+chatId+"', '0')";
@@ -299,15 +270,15 @@ con.connect(function (err) {
                     status = 'insert error';
                 } else{
                     status = 'inserted';
+                    con.query("UPDATE chat SET slur = '"+message+"' , date_set = CURRENT_TIMESTAMP WHERE chatID  = '"+chatId+"'", function (err, result) {
+                        if (err) {
+                            console.log(err);
+                        } else{
+                            console.log('updated');
+                        }
+                    });
                 }
             });
-            // con.query("UPDATE chat SET slur = '"+message+"' , sent = 'manager'  WHERE clientID  = '"+chatId+"'", function (err, result) {
-            //         if (err) {
-            //             console.log(err);
-            //         } else{
-            //
-            //         }
-            //     });
 
         });
     });

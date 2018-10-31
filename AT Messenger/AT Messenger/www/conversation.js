@@ -68,6 +68,8 @@ send.addEventListener('click',function(){
             '                    <p>'+message+'</p>\n' +
             '                </div> </div>';
         document.getElementById("converseWrapper").appendChild(div);
+
     }
+    document.getElementById("textMessage").value = '';
 
 });
