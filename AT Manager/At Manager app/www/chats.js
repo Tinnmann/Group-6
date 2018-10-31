@@ -6,39 +6,46 @@ function chatLoader(){
     });
 }
 socket.on('chatPopulate',function (data) {
+    if(data.result.length> 0){
+        document.getElementById("chatContainer").innerHTML = '';
+    }
     for(i = 0; i < data.result.length; i++){
         var div = document.createElement('div');
         div.className = 'chat container';
-            var row = document.createElement('div');
-            row.className = 'row';
-                var imagewrap = document.createElement('div');
-                imagewrap.className = 'profilePic col-3 py-2 pr-0 d-flex justify-content-center';
-                    var imagewrapinner = document.createElement('div');
-                        var image = document.createElement("IMG");
-                        image.setAttribute('src','images/ProfilePicTest.png')
-                        image.className = 'img-fluid';
-                    imagewrapinner.appendChild(image);
-                imagewrap.appendChild(imagewrapinner);
-                var wrap1 = document.createElement('div');
-                wrap1.className = 'col-9 p-4 my-auto';
-                    var chatname = document.createElement('div');
-                    chatname.className = 'contactName col-12 pl-0';
-                        var textnode = document.createTextNode(data.result[i]['sent']);
-                    chatname.appendChild(textnode);
-                    var chatcat = document.createElement('div');
-                    chatcat.className = 'categoryName col-12 pl-0';
-                        var textcat = document.createTextNode(data.result[i]['catName']);
-                    chatcat.appendChild(textcat);
-                    var chatslur = document.createElement('div');
-                    chatslur.className = 'categoryName col-12 pl-0';
-                        var textslur = document.createTextNode(data.result[i]['slur']);
-                    chatslur.appendChild(textslur);
-                wrap1.appendChild(chatname);
-                wrap1.appendChild(chatcat);
-                wrap1.appendChild(chatslur);
-            row.appendChild(imagewrap);
-            row.appendChild(wrap1);
-        div.appendChild(row);
+        div.id = data.result[i]['chatID'];
+        div.innerHTML = '<div class="row" onclick="test('+ data.result[i]['chatID'] + ')">\n' +
+            '            <div class="profilePic col-3 py-2 pr-0 d-flex justify-content-center">\n' +
+            '                <div>\n' +
+            '                    <img class="img-fluid" src="images/ProfilePicTest.png">\n' +
+            '                </div>\n' +
+            '            </div>\n' +
+            '            <div class="col-9 my-auto">\n' +
+            '                <div class="contactName col-12 pl-0">\n' +
+                                data.result[i]['sent'] +
+            '                </div>\n' +
+            '                <div class="categoryName col-12 pl-0">\n' +
+                                data.result[i]['catName'] +
+            '                </div>\n' +
+            '                <div class="categoryName col-12 pl-0">\n' +
+                                data.result[i]['slur'] +
+            '                </div>\n' +
+            '            </div>\n' +
+            '        </div>';
         document.getElementById("chatContainer").appendChild(div);
     }
+    for(i = 0; i < data.result.length; i++){
+        // document.getElementById(data.result[i]['chatID']).addEventListener('click',test());
+    }
 });
+function test(id){
+    $.ajax({
+        url: 'conversation.html',
+        datatype: 'json',
+        success: function(data){
+            $('#pages').html(data);
+        },
+        error: function(){
+            $('#pages').html('error');
+        }
+    });
+}
