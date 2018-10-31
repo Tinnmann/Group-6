@@ -58,12 +58,12 @@ con.connect(function (err) {
                 email = data.email,
                 password1 = data.password1;
             console.log(data);
-            con.query("SELECT * FROM client WHERE email='"+ email +"' AND password='"+ password1 +"'", function (err, result, fields) {
+            con.query("SELECT * FROM client WHERE email='"+ email +"' ", function (err, result, fields) {
                 if (err) {
                     console.log(err);
                 } else if (result.length) {
                     status = 'user exists';
-                    socket.emit('insertResponse',{status: status, name: name ,email: email});
+                    socket.emit('insertResponse',{status: status});
                 } else {
                     var sql = "INSERT INTO client (client_name , surname, email ,address ,password ) VALUES ('"+name+"','"+surname+"','"+email+"','"+cellNumber+"','"+password1+"')";
                     con.query(sql, function (err, result) {
@@ -72,6 +72,7 @@ con.connect(function (err) {
                             status = 'insert error';
                         } else{
                             status = 'inserted';
+                            socket.emit('insertResponse',{status: status});
                         }
                     });
                 }

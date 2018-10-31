@@ -15,7 +15,6 @@ socket.on('selectPopulate',function (data) {
         option.text =data.result[i]['type'];
         option.value = data.result[i]['type'];
         cat.add(option);
-            console.log(data.result[i]['type']);
     }
 });
 
@@ -23,10 +22,14 @@ logTicketButton.addEventListener('click', function(){
     var cat = document.getElementById('catSelect'),
         selected = cat.options[cat.selectedIndex].value,
         message = document.getElementById('message');
-    socket.emit('log',{
+    if(message.value != '' && selected != 'Select Category' ){socket.emit('log',{
         cat : selected,
         message : message.value,
         id : 1,
         name : 'john',
     });
+    }else{
+        
+    }
+
 });
