@@ -6,7 +6,7 @@ var nameed = document.getElementById('name'),
     surname = document.getElementById('surname'),
     cellNumber = document.getElementById('cellNumber'),
     email = document.getElementById('email'),
-    address = document.getElementById('address');
+    address = document.getElementById('address'),
     password1 = document.getElementById('password1'),
     password2 = document.getElementById('password2'),
     register = document.getElementById('register'),
@@ -89,8 +89,8 @@ function validateEmail() {
     }
 }
 
-function validateAddress(){
-    if(address.value === ""){
+function validateAddress() {
+    if (address.value === "") {
         errorMessage += "Please enter address \n";
         document.getElementById("address").style.backgroundColor = "#ffaaaa";
         return false;
@@ -120,8 +120,7 @@ function validatePw() {
                 document.getElementById("password1").style.backgroundColor = "";
                 document.getElementById("password2").style.backgroundColor = "";
                 return true;
-            }
-            else{
+            } else {
                 errorMessage += "Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters \n";
                 document.getElementById("password1").style.backgroundColor = "#ffaaaa";
                 document.getElementById("password2").style.backgroundColor = "#ffaaaa";

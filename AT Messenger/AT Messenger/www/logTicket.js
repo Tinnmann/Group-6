@@ -37,7 +37,8 @@ logTicketButton.addEventListener('click', function(){
             name : 'john',
         });
     }else{
-        document.getElementById("error").innerHTML='<div class="alert alert-danger">'+
+        document.getElementById("error").innerHTML=
+        '<div class="alert alert-danger">'+
             errorMessage
         '</div>';
     }

@@ -1,10 +1,13 @@
 var socket = io.connect('192.168.0.63:4000');
 var logout = document.getElementById('logout'),
     save = document.getElementById('save'),
+    pwEdit = document.getElementById('pwChange'),
+    profileAddress = document.getElementById('address'),
     email = document.getElementById('email'),
     profileCell = document.getElementById('profileCell'),
     profileSurname = document.getElementById('profileSurname'),
-    profileName = document.getElementById('profileName');
+    profileName = document.getElementById('profileName'),
+    errorMessage = "";
 window.onload = profileLoader();
 
 function profileLoader() {
@@ -12,21 +15,82 @@ function profileLoader() {
         id: 1,
     });
 }
-logout.addEventListener('click', function () {
-    window.location = 'index.html';
+
+//Makes the password fields appear
+pwEdit.addEventListener('click', function () {
+    document.getElementById('pwArea').innerHTML = '';
+    document.getElementById('pwField1').innerHTML =
+        '<div class="col-12" style="color: #878386">enter password</div><div class="col-12"><input id="pw1" class="profileField w-100"type="password" placeholder="password" /></div>';
+    document.getElementById('pwField2').innerHTML =
+        '<div class="col-12" style="color: #878386">re-enter password</div><div class="col-12"><input id="pw2" class="profileField w-100" type="password" placeholder="re-enter password" /></div>';
 });
+
 save.addEventListener('click', function () {
 
-        socket.emit('profileUpdate', {
-            id: 1,
-            email: email.value,
-            profileCell: profileCell.value,
-            profileSurname: profileSurname.value,
-            profileName: profileName.value,
-        });
+    //checks if password fields are visible or not
+    var passwordExists = document.getElementById('pw1');
+
+    //runs each error check function
+    errorMessage = "";
+    var nameError = validateName();
+    var surError = validateSurname();
+    var cellError = validateCell();
+    var emailError = validateEmail();
+    var addressError = validateAddress();
+
+    //if the password field is not visible
+    if (!passwordExists) {
+        
+        //if there are no errors then continue to update the client details
+        if (nameError && surError && cellError && emailError && addressError) {
+            socket.emit('profileUpdate', {
+                id: 1,
+                email: email.value,
+                profileCell: profileCell.value,
+                profileSurname: profileSurname.value,
+                profileName: profileName.value,
+            });
+            //Inserts success feedback message
+            document.getElementById("saveMessage").innerHTML = '<div class="alert alert-success text-center"><strong>Changes Saved</strong></div>';
+        }
+    }
+
+    //if the password field is visible
+    if (passwordExists) {
+        //check password for any errors
+        var passwordError = validatePw();
+        
+        //if there are no errors then contine to update the client details
+        if (nameError && surError && cellError && emailError && addressError && passwordError) {
+            socket.emit('profileUpdate', {
+                id: 1,
+                email: email.value,
+                profileCell: profileCell.value,
+                profileSurname: profileSurname.value,
+                profileName: profileName.value,
+                
+            });
+            
+            //remove the password fields and replace it with the success message
+            document.getElementById('pwArea').innerHTML = '';
+            document.getElementById('pwField1').innerHTML = '';
+            document.getElementById('pwField2').innerHTML = '';
+            
+            //Inserts success feedback message
+            document.getElementById("pwArea").innerHTML = '<div class="alert alert-success text-center"><strong>Changes Saved</strong></div>';
+        }
+    }
     
-    //Inserts success feedback message
-    document.getElementById("saveMessage").innerHTML = '<div class="alert alert-success text-center"><strong>Changes Saved</strong></div>';
+    //if there are any errors, display them in an error message
+    if (!nameError || !surError || !cellError || !emailError || !addressError || !passwordError ) {
+        //Inserts success feedback message
+            document.getElementById("saveMessage").innerHTML = '<div class="alert alert-danger text-center"><strong>'+errorMessage+'</strong></div>';
+    }
+    
+});
+
+logout.addEventListener('click', function () {
+    window.location = 'index.html';
 });
 
 socket.on('profilePopulate', function (data) {
@@ -35,3 +99,96 @@ socket.on('profilePopulate', function (data) {
     profileCell.value = data.result[0]['address'];
     email.value = data.result[0]['email'];
 });
+
+//Check all fields
+function validateName() {
+    if (profileName.value === "") {
+        errorMessage += "Please enter name <br>";
+        document.getElementById("profileName").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else {
+        document.getElementById("profileName").style.backgroundColor = "";
+        return true;
+    }
+}
+
+function validateSurname() {
+    if (profileSurname.value === "") {
+        errorMessage += "Please enter last name <br>";
+        document.getElementById("profileSurname").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else {
+        document.getElementById("profileSurname").style.backgroundColor = "";
+        return true;
+    }
+}
+
+function validateCell() {
+    var validCell = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (profileCell.value.match(validCell)) {
+        document.getElementById("profileCell").style.backgroundColor = "";
+        return true;
+    } else {
+        errorMessage += "Please enter valid cellphone number <br>";
+        document.getElementById("profileCell").style.backgroundColor = "#ffaaaa";
+        return false;
+    }
+}
+
+function validateEmail() {
+    var emailAddress = email.value;
+    var valid = emailAddress.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/);
+    if (emailAddress === "") {
+        errorMessage += "Please enter e-mail address <br>";
+        document.getElementById("email").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else if (valid !== 0) {
+        errorMessage += "Invalid e-mail address <br>";
+        document.getElementById("email").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else {
+        document.getElementById("email").style.backgroundColor = "";
+        return true;
+    }
+}
+
+function validateAddress() {
+    if (profileAddress.value === "") {
+        errorMessage += "Please enter address <br>";
+        document.getElementById("address").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else {
+        document.getElementById("address").style.backgroundColor = "";
+        return true;
+    }
+}
+
+function validatePw() {
+    var pw1 = document.getElementById('pw1').value;
+    var pw2 = document.getElementById('pw2').value;
+    var validPw = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+    if (pw1 === "" && pw2 === "") {
+        errorMessage += "Please make sure both password fields are filled in \n";
+        document.getElementById("pw1").style.backgroundColor = "#ffaaaa";
+        document.getElementById("pw2").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else {
+        if (pw1 != pw2) {
+            errorMessage += "Passwords do not match <br>";
+            document.getElementById("pw1").style.backgroundColor = "#ffaaaa";
+            document.getElementById("pw2").style.backgroundColor = "#ffaaaa";
+            return false;
+        } else {
+            if (pw1.match(validPw)) {
+                document.getElementById("pw1").style.backgroundColor = "";
+                document.getElementById("pw2").style.backgroundColor = "";
+                return true;
+            } else {
+                errorMessage += "Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters <br>";
+                document.getElementById("pw1").style.backgroundColor = "#ffaaaa";
+                document.getElementById("pw2").style.backgroundColor = "#ffaaaa";
+                return false;
+            }
+        }
+    }
+}
