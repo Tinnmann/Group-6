@@ -31,16 +31,17 @@ register.addEventListener('click', function () {
             email: email.value,
             password1: password1.value,
         });
-    } else {
-        //display the errors
-        alert(errorMessage);
+    }
+    if (!nameError || !surError || !cellError || !emailError || !addressError || !pwError) {
+        //Inserts success feedback message
+        document.getElementById("regErorr").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
     }
 });
 
 //Check all fields
 function validateName() {
     if (nameed.value === "") {
-        errorMessage += "Please enter name\n";
+        errorMessage += "Please enter name <br>";
         document.getElementById("name").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
@@ -51,7 +52,7 @@ function validateName() {
 
 function validateSurname() {
     if (surname.value === "") {
-        errorMessage += "Please enter last name\n";
+        errorMessage += "Please enter last name <br>";
         document.getElementById("surname").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
@@ -66,7 +67,7 @@ function validateCell() {
         document.getElementById("cellNumber").style.backgroundColor = "";
         return true;
     } else {
-        errorMessage += "Please enter valid cellphone number\n";
+        errorMessage += "Please enter valid cellphone number <br>";
         document.getElementById("cellNumber").style.backgroundColor = "#ffaaaa";
         return false;
     }
@@ -76,7 +77,7 @@ function validateEmail() {
     var emailAddress = email.value;
     var valid = emailAddress.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/);
     if (emailAddress === "") {
-        errorMessage += "Please enter e-mail address \n";
+        errorMessage += "Please enter e-mail address <br>";
         document.getElementById("email").style.backgroundColor = "#ffaaaa";
         return false;
     } else if (valid !== 0) {
@@ -91,7 +92,7 @@ function validateEmail() {
 
 function validateAddress() {
     if (address.value === "") {
-        errorMessage += "Please enter address \n";
+        errorMessage += "Please enter address <br>";
         document.getElementById("address").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
@@ -105,13 +106,13 @@ function validatePw() {
     var pw2 = password2.value;
     var validPw = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
     if (pw1 === "" && pw2 === "") {
-        errorMessage += "Please make sure both password fields are filled in \n";
+        errorMessage += "Please make sure both password fields are filled in <br>";
         document.getElementById("password1").style.backgroundColor = "#ffaaaa";
         document.getElementById("password2").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
         if (pw1 != pw2) {
-            errorMessage += "Passwords do not match \n";
+            errorMessage += "Passwords do not match <br>";
             document.getElementById("password1").style.backgroundColor = "#ffaaaa";
             document.getElementById("password2").style.backgroundColor = "#ffaaaa";
             return false;
@@ -121,7 +122,7 @@ function validatePw() {
                 document.getElementById("password2").style.backgroundColor = "";
                 return true;
             } else {
-                errorMessage += "Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters \n";
+                errorMessage += "Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters <br>";
                 document.getElementById("password1").style.backgroundColor = "#ffaaaa";
                 document.getElementById("password2").style.backgroundColor = "#ffaaaa";
                 return false;
