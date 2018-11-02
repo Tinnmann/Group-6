@@ -286,5 +286,52 @@ con.connect(function (err) {
             });
 
         });
+        manSocket.on('insertCal',function(data){
+            console.log('insert name = ' + data.name + 'insert date = ' + data.date + 'insert time = ' + data.time);
+            var name = data.name,
+                date = data.date,
+                time = data.time;
+            var sql = "INSERT INTO calendar (custName ,setDate ,time) VALUES ('"+name+"','"+date+"', '"+time+"')";
+            con.query(sql, function (err, result) {
+                if (err) {
+                    console.log(err);
+                    status = 'insert error';
+                } else{
+                    status = 'inserted';
+                }
+            });
+
+
+        });
+        manSocket.on('scheduleLoad',function(data){
+            console.log('insert date = ' + data.date );
+            con.query("SELECT * FROM calendar WHERE setDate ='"+ data.date + "' ORDER BY setDate", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    console.log('query accepted');
+                    manSocket.emit('shedulePopulate',{result: result});
+                } else {
+                    console.log("Query didn't return any results.");
+                    console.log(result);
+                }
+            });
+        });
+        manSocket.on('requestDays',function(data){
+            console.log('insert date = ' + data.date );
+            con.query("SELECT * FROM calendar ORDER BY setDate", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    console.log('query accepted');
+                    manSocket.emit('dayPopulate',{result: result});
+                } else {
+                    console.log("Query didn't return any results.");
+                    console.log(result);
+                }
+            });
+        });
     });
 });

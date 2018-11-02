@@ -1,5 +1,5 @@
 //making a connection
-// var socket = io.connect('192.168.0.63:4000');
+var socket = io.connect('192.168.0.63:4001');
 // var socket = io.connect('172.25.41.97:4000');
 
 var //custName = new Array(),
@@ -103,7 +103,20 @@ var myCalendar = {
                 //var custName
                 //var appointmentTime
                 //for each loop comes here. Each date has a number of schedules. for each time on that date, add name,time & date below the calendar
-
+                socket.emit('scheduleLoad',{
+                    date: newDate,
+                });
+                socket.on('shedulePopulate',function (data) {
+                    for(i = 0; i < data.result.length; i++){
+                        console.log(data.result[i]['calID']);
+                        console.log(data.result[i]['custName']);
+                        console.log(data.result[i]['setDate']);
+                        console.log(data.result[i]['time']);
+                        div.innerHTML="<p style='background-color:#e7e9ed' >"+
+                            data.result[i]['custName']+":<br>"+data.result[i]['setDate']+" "+data.result[i]['time']+"<i class='icon ion-md-information-circle-outline'></i>"+
+                            "</p>";
+                    }
+                })
                 div.innerHTML="<p style='background-color:#e7e9ed' >"+
                     custName+":<br>"+newDate+" "+appointmentTime+"<i class='icon ion-md-information-circle-outline'></i>"+
                     "</p>";
@@ -130,6 +143,16 @@ var myCalendar = {
 
     createMonth: function () {
         var currentMonth = this.date.getMonth();
+        socket.emit('requestDays',{
+        });
+        socket.on('dayPopulate',function (data) {
+            for(i = 0; i < data.result.length; i++){
+                console.log(data.result[i]['calID']);
+                console.log(data.result[i]['custName']);
+                console.log(data.result[i]['setDate']);
+                console.log(data.result[i]['time']);
+            }
+        });
         while (this.date.getMonth() === currentMonth) {
             this.createDay(
                 this.date.getDate(),
@@ -204,19 +227,24 @@ function setSchedule()
     modal.style.display = "none";
 
     // alert(dateArray.length);// Place data to test in the alert e.g. newDate or currentDate etc..
-    if(isNewAppointment)
-    {
-        isNewAppointment = false;
-        alert("Date has " + appointmentArray.count() + " appointments stored");
-    }
-    else
-    {
+    // if(isNewAppointment)
+    // {
+    //     isNewAppointment = false;
+    //     alert("Date has " + appointmentArray.count() + " appointments stored");
+    // }
+    // else
+    // {
         alert("Date has no appointments stored!");
         isNewAppointment = true;
 
         // appointmentArray[countAppointment] = newDate;
-        appointmentArray[countAppointment] = {name: custName, date: currentDate, time: appointmentTime};//Stores appointment data in an array that increments when set schedule is clicked
-    }
+        socket.emit('insertCal',{
+            name: custName,
+            date: currentDate,
+            time: appointmentTime,
+        });
+        // appointmentArray[countAppointment] = {name: custName, date: currentDate, time: appointmentTime};//Stores appointment data in an array that increments when set schedule is clicked
+    // }
 
     localStorage.setItem("appointments", JSON.stringify(appointmentArray));
 
