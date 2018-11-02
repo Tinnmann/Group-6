@@ -100,9 +100,8 @@ var myCalendar = {
                 newDate = this.dataset.calendarDate;
                 newDate = newDate.split(' ').slice(0, 4).join(' ');
                 currentDate = newDate;
-                //var custName
-                //var appointmentTime
-                //for each loop comes here. Each date has a number of schedules. for each time on that date, add name,time & date below the calendar
+
+                //for each loop comes here. Each date has a number of schedules. for each date, if date has nothing display nothing, else display all the schedules for that date
 
                 div.innerHTML="<p style='background-color:#e7e9ed' >"+
                     custName+":<br>"+newDate+" "+appointmentTime+"<i class='icon ion-md-information-circle-outline'></i>"+
@@ -208,6 +207,9 @@ function setSchedule()
     {
         isNewAppointment = false;
         alert("Date has " + appointmentArray.count() + " appointments stored");
+        // if(theTime is different && name is different){
+        //   appointmentArray[countAppointment] = {name: custName, date: currentDate, time: appointmentTime};
+        // }
     }
     else
     {
