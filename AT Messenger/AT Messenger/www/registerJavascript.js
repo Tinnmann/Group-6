@@ -137,7 +137,7 @@ socket.on('insertResponse', function (data) {
         alert('test2');
         window.location = "index.html";
     } else {
-        alert('user rejected status :' + data.status + ' User :' + data.username);
+        alert('user exists');
     }
 
 });

@@ -34,17 +34,23 @@ con.connect(function (err) {
         socket.on('login', function (data) {
             var status = 'rejected',
                 username = data.username,
-                password = data.password;
+                password = data.password,
+                id,
+                name,
+                surname;
             console.log('username : ' + username + ' password : ' + password);
             con.query("SELECT * FROM client WHERE email='"+ username +"' AND password='"+ password +"'", function (err, result, fields) {
                 if (err) {
                     console.log(err);
                 } else if (result.length) {
                     status = "accepted";
+                    id = result[0]['clientID'];
+                    name = result[0]['client_name'];
+                    surname = result[0]['surname'];
                 } else {
                     console.log("Query didn't return any results.");
                 }
-                socket.emit('response',{status: status, username: username ,password: password});
+                socket.emit('response',{status: status, username: username ,password: password,id: id, name: name, surname: surname});
             });
         });
         socket.on('register', function (data) {
@@ -95,28 +101,27 @@ con.connect(function (err) {
               name = data.name,
             message = data.message ;
           var insertedId;
-            var sql = "INSERT INTO message (message) VALUES ('"+message+"')";
+           var sql = "INSERT INTO chat (clientID , slur,catName  ,sent ) VALUES ('"+id+"','"+message+"','"+cat+"','"+name+"')";
             con.query(sql, function (err, result) {
                 if (err) {
                     console.log(err);
-                    status = 'insert error';
                 } else{
-                    status = 'inserted';
                     console.log(status + "insert test 2");
+                    console.log(result.insertId);
                     insertedId = result.insertId;
-                    sql = "INSERT INTO chat (clientID , messageID, slur,catName  ,sent ) VALUES ('"+id+"','"+insertedId+"','"+message+"','"+cat+"','"+name+"')";
+                    sql = "INSERT INTO message (message, chatId, sender) VALUES ('"+message+"','"+insertedId+"', '1')";
                     con.query(sql, function (err, result) {
                         if (err) {
                             console.log(err);
+                            status = 'insert error';
                         } else{
+                            status = 'inserted';
                             console.log(status + "insert test 2");
-                            console.log(result.insertId);
                             insertedId = result.insertId;
                         }
                     });
                 }
             });
-
         });
         socket.on('chatLoad',function(data){
             var id = data.id;
