@@ -60,7 +60,7 @@ var username = document.getElementById('username'),
                 setCookie("surname", data.surname, 1);
                 window.location = "layout.html";
             }else{
-                document.getElementById("loginError").innerHTML = 'Username Or Password Incorrect';
+                document.getElementById("loginError").innerHTML = '<div class="alert alert-danger text-center"><strong>Username Or Password Incorrect</strong></div>';
             }
 
         });
