@@ -23,18 +23,19 @@ register.addEventListener('click', function () {
     var addressError = validateAddress();
     var pwError = validatePw();
     if (nameError && surError && cellError && emailError && addressError && pwError) {
+        var cellNumberNoSpace = cellNumber.value.split(' ').join('');
         // alert(nameed.value);
         socket.emit('register', {
             name: nameed.value,
             surname: surname.value,
-            cellNumber: cellNumber.value,
+            cellNumber: cellNumberNoSpace,
             email: email.value,
             password1: password1.value,
         });
     }
     if (!nameError || !surError || !cellError || !emailError || !addressError || !pwError) {
         //Inserts success feedback message
-        document.getElementById("regErorr").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
+        document.getElementById("regError").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
     }
 });
 
@@ -63,7 +64,8 @@ function validateSurname() {
 
 function validateCell() {
     var validCell = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if (cellNumber.value.match(validCell)) {
+    var cellNumberNoSpace = cellNumber.value.split(' ').join('');
+    if (cellNumberNoSpace.match(validCell)) {
         document.getElementById("cellNumber").style.backgroundColor = "";
         return true;
     } else {
