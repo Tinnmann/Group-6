@@ -41,7 +41,8 @@ register.addEventListener('click', function () {
 
 //Check all fields
 function validateName() {
-    if (nameed.value === "") {
+    var valid = /^[a-zA-Z -]+$/;
+    if (nameed.value === "" || !nameed.value.match(valid)) {
         errorMessage += "Please enter name <br>";
         document.getElementById("name").style.backgroundColor = "#ffaaaa";
         return false;
@@ -52,7 +53,8 @@ function validateName() {
 }
 
 function validateSurname() {
-    if (surname.value === "") {
+    var valid = /^[a-zA-Z -]+$/;
+    if (surname.value === "" || !surname.value.match(valid)) {
         errorMessage += "Please enter last name <br>";
         document.getElementById("surname").style.backgroundColor = "#ffaaaa";
         return false;
