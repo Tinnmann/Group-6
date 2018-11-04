@@ -2,9 +2,13 @@ var socket = io.connect('192.168.0.63:4001');
 window.onload = chatLoader();
 
 function chatLoader(){
-    socket.emit('chatLoad',{
+    socket.emit('manChatLoad',{
     });
 }
+window.setInterval(function(){
+    socket.emit('manChatLoad',{
+    });
+}, 10000);
 socket.on('chatPopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("chatContainer").innerHTML = '';

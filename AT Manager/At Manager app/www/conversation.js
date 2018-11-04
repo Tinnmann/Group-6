@@ -4,11 +4,21 @@ var send = document.getElementById('send');
 
 
 function test(){
+    document.getElementById("textMessage").value = '';
     var id = getCookie("chat");
     socket.emit('converse',{
         chatId : id,
     });
 }
+
+window.setInterval(function(){
+    var last = getCookie("last");
+    var id = getCookie("chat");
+    socket.emit('refresh',{
+        messageId : last,
+        id : id ,
+    });
+}, 5000);
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -48,6 +58,8 @@ socket.on('conversePopulate',function (data) {
         }
         document.getElementById("converseWrapper").appendChild(div);
     }
+    var last = data.result[data.result.length-1]['messageID'];
+    setCookie("last", last, 5);
 });
 
 send.addEventListener('click',function(){
@@ -65,5 +77,5 @@ send.addEventListener('click',function(){
             '                </div> </div>';
         document.getElementById("converseWrapper").appendChild(div);
     }
-
+    document.getElementById("textMessage").value = '';
 });

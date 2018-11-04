@@ -82,3 +82,25 @@ function validateMsg(){
         return true;
     }
 }
+
+socket.on('logResponse', function (data) {
+    id = data.result;
+    setCookie("chat", id, 5);
+    $.ajax({
+        url: 'conversation.html',
+        datatype: 'json',
+        success: function(data){
+            $('#pages').html(data);
+        },
+        error: function(){
+            $('#pages').html('error');
+        }
+    });
+});
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}

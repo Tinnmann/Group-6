@@ -7,6 +7,11 @@ function chatLoader(){
         id : getCookie("id"),
     });
 }
+window.setInterval(function(){
+    socket.emit('chatLoad',{
+        id : getCookie("id"),
+    });
+}, 10000);
 function getCookie(cname) {
     var name = cname + "=";
     var decodedCookie = decodeURIComponent(document.cookie);

@@ -46,6 +46,7 @@ save.addEventListener('click', function () {
             socket.emit('profileUpdate', {
                 id: 1,
                 email: email.value,
+                profileAdrress : profileAddress.value,
                 profileCell: profileCell.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
@@ -66,6 +67,7 @@ save.addEventListener('click', function () {
                 id: 1,
                 email: email.value,
                 profileCell: profileCell.value,
+                profileAdrress : profileAddress.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
                 
@@ -104,7 +106,8 @@ function cookieDestroy(cname,cvalue,exdays) {
 socket.on('profilePopulate', function (data) {
     profileName.value = data.result[0]['client_name'];
     profileSurname.value = data.result[0]['surname'];
-    profileCell.value = data.result[0]['address'];
+    profileAddress.value = data.result[0]['address'];
+    profileCell.value = data.result[0]['cell'];
     email.value = data.result[0]['email'];
 });
 

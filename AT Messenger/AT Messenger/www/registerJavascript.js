@@ -28,6 +28,7 @@ register.addEventListener('click', function () {
         socket.emit('register', {
             name: nameed.value,
             surname: surname.value,
+            address : address.value,
             cellNumber: cellNumberNoSpace,
             email: email.value,
             password1: password1.value,
@@ -138,7 +139,6 @@ function validatePw() {
 //listen for events
 socket.on('insertResponse', function (data) {
     if (data.status == 'inserted') {
-        alert('test2');
         window.location = "index.html";
     } else {
         alert('user exists');
