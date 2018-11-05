@@ -44,14 +44,14 @@ socket.on('conversePopulate',function (data) {
         var div = document.createElement('div');
         if(data.result[i]['sender'] == 1){
             div.innerHTML = '<div class="row">\n' +
-                '                <div class="receiver col-5 p-5">\n' +
+                '                <div class="receiver col-5 p-3">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +
                 '                </div>\n' +
                 '                <div class="col-6"></div>\n' +
                 '            </div>';
         }else{
             div.innerHTML = '<div  class="row"> <div class="col"></div>\n' +
-                '                <div class="sender col-6 p-5">\n' +
+                '                <div class="sender col-6 p-3">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +
                 '                </div> </div>';
 
