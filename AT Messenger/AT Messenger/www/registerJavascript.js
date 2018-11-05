@@ -15,7 +15,7 @@ var nameed = document.getElementById('name'),
 
 //emit event
 register.addEventListener('click', function () {
-    
+
     //runs each validation function
     errorMessage = "";
     var nameError = validateName();
@@ -24,14 +24,14 @@ register.addEventListener('click', function () {
     var emailError = validateEmail();
     var addressError = validateAddress();
     var pwError = validatePw();
-    
+
     //checks if all fields are correct
     if (nameError && surError && cellError && emailError && addressError && pwError) {
         var cellNumberNoSpace = cellNumber.value.split(' ').join('');
         socket.emit('register', {
             name: nameed.value,
             surname: surname.value,
-            address : address.value,
+            address: address.value,
             cellNumber: cellNumberNoSpace,
             email: email.value,
             password1: password1.value,
@@ -46,7 +46,11 @@ register.addEventListener('click', function () {
 //checks the name field
 function validateName() {
     var valid = /^[a-zA-Z -]+$/;
-    if (nameed.value === "" || !nameed.value.match(valid)) {
+    if (nameed.value.length > 20) {
+        errorMessage += "Name must be less than 20 characters <br>";
+        document.getElementById("name").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else if (nameed.value === "" || !nameed.value.match(valid)) {
         errorMessage += "Please enter name <br>";
         document.getElementById("name").style.backgroundColor = "#ffaaaa";
         return false;
@@ -59,7 +63,11 @@ function validateName() {
 //checks the surname field
 function validateSurname() {
     var valid = /^[a-zA-Z -]+$/;
-    if (surname.value === "" || !surname.value.match(valid)) {
+    if (surname.value.length > 20) {
+        errorMessage += "Surname must be less than 20 characters <br>";
+        document.getElementById("surname").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else if (surname.value === "" || !surname.value.match(valid)) {
         errorMessage += "Please enter last name <br>";
         document.getElementById("surname").style.backgroundColor = "#ffaaaa";
         return false;
@@ -95,6 +103,10 @@ function validateEmail() {
         errorMessage += "Invalid e-mail address \n";
         document.getElementById("email").style.backgroundColor = "#ffaaaa";
         return false;
+    } else if (emailAddress.length > 50) {
+        errorMessage += "email must be less than 50 characters <br>";
+        document.getElementById("surname").style.backgroundColor = "#ffaaaa";
+        return false;
     } else {
         document.getElementById("email").style.backgroundColor = "";
         return true;
@@ -105,6 +117,11 @@ function validateEmail() {
 function validateAddress() {
     if (address.value === "") {
         errorMessage += "Please enter address <br>";
+        document.getElementById("address").style.backgroundColor = "#ffaaaa";
+        return false;
+    }
+    if (address.value.length > 50) {
+        errorMessage += "address must be less than 50 characters <br>";
         document.getElementById("address").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
@@ -130,7 +147,12 @@ function validatePw() {
             document.getElementById("password2").style.backgroundColor = "#ffaaaa";
             return false;
         } else {
-            if (pw1.match(validPw)) {
+            if (pw1.length > 20) {
+                errorMessage += "Passwords must be less than 20 characters <br>";
+                document.getElementById("password1").style.backgroundColor = "#ffaaaa";
+                document.getElementById("password2").style.backgroundColor = "#ffaaaa";
+                return false;
+            } else if (pw1.match(validPw)) {
                 document.getElementById("password1").style.backgroundColor = "";
                 document.getElementById("password2").style.backgroundColor = "";
                 return true;
