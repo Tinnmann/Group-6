@@ -1,5 +1,5 @@
 //making a connection
-var socket = io.connect('192.168.0.63:4000');
+var socket = io.connect('192.168.8.2:4000');
 
 // getting dom
 var nameed = document.getElementById('name'),
@@ -105,7 +105,7 @@ function validateEmail() {
         return false;
     } else if (emailAddress.length > 50) {
         errorMessage += "email must be less than 50 characters <br>";
-        document.getElementById("surname").style.backgroundColor = "#ffaaaa";
+        document.getElementById("email").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
         document.getElementById("email").style.backgroundColor = "";

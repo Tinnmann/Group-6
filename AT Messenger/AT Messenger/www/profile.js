@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4000');
+var socket = io.connect('192.168.8.2:4000');
 var logout = document.getElementById('logout'),
     save = document.getElementById('save'),
     pwEdit = document.getElementById('pwChange'),
@@ -41,13 +41,13 @@ save.addEventListener('click', function () {
 
     //if the password field is not visible
     if (!passwordExists) {
-        
+
         //if there are no errors then continue to update the client details
         if (nameError && surError && cellError && emailError && addressError) {
             socket.emit('profileUpdate', {
                 id: 1,
                 email: email.value,
-                profileAdrress : profileAddress.value,
+                profileAdrress: profileAddress.value,
                 profileCell: profileCell.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
@@ -61,47 +61,47 @@ save.addEventListener('click', function () {
     if (passwordExists) {
         //check password for any errors
         var passwordError = validatePw();
-        
+
         //if there are no errors then contine to update the client details
         if (nameError && surError && cellError && emailError && addressError && passwordError) {
             socket.emit('profileUpdate', {
                 id: 1,
                 email: email.value,
                 profileCell: profileCell.value,
-                profileAdrress : profileAddress.value,
+                profileAdrress: profileAddress.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
-                
+
             });
-            
+
             //remove the password fields and replace it with the success message
             document.getElementById('pwArea').innerHTML = '';
             document.getElementById('pwField1').innerHTML = '';
             document.getElementById('pwField2').innerHTML = '';
-            
+
             //Inserts success feedback message
             document.getElementById("pwArea").innerHTML = '<div class="alert alert-success text-center"><strong>Changes Saved</strong></div>';
         }
     }
-    
+
     //if there are any errors, display them in an error message
-    if (!nameError || !surError || !cellError || !emailError || !addressError || !passwordError ) {
+    if (!nameError || !surError || !cellError || !emailError || !addressError || !passwordError) {
         //Inserts success feedback message
-            document.getElementById("saveMessage").innerHTML = '<div class="alert alert-danger text-center"><strong>'+errorMessage+'</strong></div>';
+        document.getElementById("saveMessage").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
     }
-    
+
 });
 
 //logout of app
 logout.addEventListener('click', function () {
-    cookieDestroy('id',getCookie("id"),-3);
+    cookieDestroy('id', getCookie("id"), -3);
     window.location = 'index.html';
 });
 
 //destroys the cookie
-function cookieDestroy(cname,cvalue,exdays) {
+function cookieDestroy(cname, cvalue, exdays) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
@@ -117,7 +117,12 @@ socket.on('profilePopulate', function (data) {
 
 //validates the name field
 function validateName() {
-    if (profileName.value === "") {
+    var valid = /^[a-zA-Z -]+$/;
+    if (profileName.value.length > 20) {
+        errorMessage += "Name must be less than 20 characters <br>";
+        document.getElementById("profileName").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else if (profileName.value === "" || profileName.value.match(valid)) {
         errorMessage += "Please enter name <br>";
         document.getElementById("profileName").style.backgroundColor = "#ffaaaa";
         return false;
@@ -129,7 +134,12 @@ function validateName() {
 
 //validate the surname field
 function validateSurname() {
-    if (profileSurname.value === "") {
+    var valid = /^[a-zA-Z -]+$/;
+    if (profileSurname.value.length > 20) {
+        errorMessage += "Surname must be less than 20 characters <br>";
+        document.getElementById("profileSurname").style.backgroundColor = "#ffaaaa";
+        return false;
+    } else if (profileSurname.value === "" || !profileSurname.value.match(valid)) {
         errorMessage += "Please enter last name <br>";
         document.getElementById("profileSurname").style.backgroundColor = "#ffaaaa";
         return false;
@@ -142,7 +152,8 @@ function validateSurname() {
 //validates the cell field
 function validateCell() {
     var validCell = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if (profileCell.value.match(validCell)) {
+    var cellNumberNoSpace = profileCell.value.split(' ').join('');
+    if (cellNumberNoSpace.match(validCell)) {
         document.getElementById("profileCell").style.backgroundColor = "";
         return true;
     } else {
@@ -164,6 +175,10 @@ function validateEmail() {
         errorMessage += "Invalid e-mail address <br>";
         document.getElementById("email").style.backgroundColor = "#ffaaaa";
         return false;
+    } else if (emailAddress.length > 50) {
+        errorMessage += "email must be less than 50 characters <br>";
+        document.getElementById("email").style.backgroundColor = "#ffaaaa";
+        return false;
     } else {
         document.getElementById("email").style.backgroundColor = "";
         return true;
@@ -174,6 +189,11 @@ function validateEmail() {
 function validateAddress() {
     if (profileAddress.value === "") {
         errorMessage += "Please enter address <br>";
+        document.getElementById("address").style.backgroundColor = "#ffaaaa";
+        return false;
+    }
+    if (profileAddress.value.length > 50) {
+        errorMessage += "address must be less than 50 characters <br>";
         document.getElementById("address").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
@@ -193,13 +213,18 @@ function validatePw() {
         document.getElementById("pw2").style.backgroundColor = "#ffaaaa";
         return false;
     } else {
-        if (pw1 != pw2) {
-            errorMessage += "Passwords do not match <br>";
+        if (pw1.length > 20) {
+            errorMessage += "Passwords must be less than 20 characters <br>";
             document.getElementById("pw1").style.backgroundColor = "#ffaaaa";
             document.getElementById("pw2").style.backgroundColor = "#ffaaaa";
             return false;
         } else {
-            if (pw1.match(validPw)) {
+            if (pw1 != pw2) {
+                errorMessage += "Passwords do not match <br>";
+                document.getElementById("pw1").style.backgroundColor = "#ffaaaa";
+                document.getElementById("pw2").style.backgroundColor = "#ffaaaa";
+                return false;
+            } else if (pw1.match(validPw)) {
                 document.getElementById("pw1").style.backgroundColor = "";
                 document.getElementById("pw2").style.backgroundColor = "";
                 return true;

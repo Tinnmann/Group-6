@@ -39,6 +39,7 @@ Starting Sequence
         phonegap serve --port 3000
         
         cd Project/Group-6/AT\ Messenger/AT\ Messenger/
+        phonegap serve --port 8000
         
         
 socket cheat sheet

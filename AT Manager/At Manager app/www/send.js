@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4000');
+var socket = io.connect('192.168.8.2:4000');
 var logTicketButton = document.getElementById('logTicket');
 var msg = document.getElementById('message');
 var errorMessage = "";

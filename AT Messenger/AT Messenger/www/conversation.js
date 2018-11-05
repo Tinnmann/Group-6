@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4000');
+var socket = io.connect('192.168.8.2:4000');
 window.onload = test();
 var send = document.getElementById('send');
 
@@ -10,6 +10,7 @@ window.setInterval(function(){
         id : id ,
     });
 }, 5000);
+
 function test(){
     document.getElementById("textMessage").value = '';
     var id = getCookie("chat");

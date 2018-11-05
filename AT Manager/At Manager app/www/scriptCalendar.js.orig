@@ -1,5 +1,5 @@
 //making a connection
-var socket = io.connect('192.168.0.63:4001');
+var socket = io.connect('192.168.8.2:4001');
 // var socket = io.connect('172.25.41.97:4000');
 
 var //custName = new Array(),
