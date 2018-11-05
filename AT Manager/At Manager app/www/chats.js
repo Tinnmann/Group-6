@@ -2,9 +2,13 @@ var socket = io.connect('192.168.0.63:4001');
 window.onload = chatLoader();
 
 function chatLoader(){
-    socket.emit('chatLoad',{
+    socket.emit('manChatLoad',{
     });
 }
+window.setInterval(function(){
+    socket.emit('manChatLoad',{
+    });
+}, 10000);
 socket.on('chatPopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("chatContainer").innerHTML = '';
@@ -33,15 +37,11 @@ socket.on('chatPopulate',function (data) {
             '        </div>';
         document.getElementById("chatContainer").appendChild(div);
     }
-    for(i = 0; i < data.result.length; i++){
-        // document.getElementById(data.result[i]['chatID']).addEventListener('click',test());
-    }
 });
 function test(id){
+    setCookie("chat", id, 5);
     $.ajax({
         url: 'conversation.html',
-        type: 'GET',
-        data: {id : id},
         datatype: 'json',
         success: function(data){
             $('#pages').html(data);
@@ -50,4 +50,11 @@ function test(id){
             $('#pages').html('error');
         }
     });
+}
+
+function setCookie(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }

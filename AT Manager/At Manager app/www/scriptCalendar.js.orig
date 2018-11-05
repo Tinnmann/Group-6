@@ -100,7 +100,11 @@ var myCalendar = {
                 newDate = this.dataset.calendarDate;
                 newDate = newDate.split(' ').slice(0, 4).join(' ');
                 currentDate = newDate;
+<<<<<<< HEAD
 
+                //for each loop comes here. Each date has a number of schedules. for each date, if date has nothing display nothing, else display all the schedules for that date
+
+=======
                 //var custName
                 //var appointmentTime
                 //for each loop comes here. Each date has a number of schedules. for each time on that date, add name,time & date below the calendar
@@ -118,7 +122,7 @@ var myCalendar = {
                             "</p>";
                     }
                 })
-
+>>>>>>> 5cea0d18c71b2869c48da340fad101996ad527f9
                 div.innerHTML="<p style='background-color:#e7e9ed' >"+
                     custName+":<br>"+newDate+" "+appointmentTime+"<i class='icon ion-md-information-circle-outline'></i>"+
                     "</p>";
@@ -229,7 +233,7 @@ function setSchedule()
     modal.style.display = "none";
 
     // alert(dateArray.length);// Place data to test in the alert e.g. newDate or currentDate etc..
-
+<<<<<<< HEAD
     if(isNewAppointment)
     {
         isNewAppointment = false;
@@ -240,7 +244,15 @@ function setSchedule()
     }
     else
     {
-
+=======
+    // if(isNewAppointment)
+    // {
+    //     isNewAppointment = false;
+    //     alert("Date has " + appointmentArray.count() + " appointments stored");
+    // }
+    // else
+    // {
+>>>>>>> 5cea0d18c71b2869c48da340fad101996ad527f9
         alert("Date has no appointments stored!");
         isNewAppointment = true;
 

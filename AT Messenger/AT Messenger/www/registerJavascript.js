@@ -23,24 +23,27 @@ register.addEventListener('click', function () {
     var addressError = validateAddress();
     var pwError = validatePw();
     if (nameError && surError && cellError && emailError && addressError && pwError) {
+        var cellNumberNoSpace = cellNumber.value.split(' ').join('');
         // alert(nameed.value);
         socket.emit('register', {
             name: nameed.value,
             surname: surname.value,
-            cellNumber: cellNumber.value,
+            address : address.value,
+            cellNumber: cellNumberNoSpace,
             email: email.value,
             password1: password1.value,
         });
     }
     if (!nameError || !surError || !cellError || !emailError || !addressError || !pwError) {
         //Inserts success feedback message
-        document.getElementById("regErorr").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
+        document.getElementById("regError").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
     }
 });
 
 //Check all fields
 function validateName() {
-    if (nameed.value === "") {
+    var valid = /^[a-zA-Z -]+$/;
+    if (nameed.value === "" || !nameed.value.match(valid)) {
         errorMessage += "Please enter name <br>";
         document.getElementById("name").style.backgroundColor = "#ffaaaa";
         return false;
@@ -51,7 +54,8 @@ function validateName() {
 }
 
 function validateSurname() {
-    if (surname.value === "") {
+    var valid = /^[a-zA-Z -]+$/;
+    if (surname.value === "" || !surname.value.match(valid)) {
         errorMessage += "Please enter last name <br>";
         document.getElementById("surname").style.backgroundColor = "#ffaaaa";
         return false;
@@ -63,7 +67,8 @@ function validateSurname() {
 
 function validateCell() {
     var validCell = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-    if (cellNumber.value.match(validCell)) {
+    var cellNumberNoSpace = cellNumber.value.split(' ').join('');
+    if (cellNumberNoSpace.match(validCell)) {
         document.getElementById("cellNumber").style.backgroundColor = "";
         return true;
     } else {
@@ -134,10 +139,9 @@ function validatePw() {
 //listen for events
 socket.on('insertResponse', function (data) {
     if (data.status == 'inserted') {
-        alert('test2');
         window.location = "index.html";
     } else {
-        alert('user rejected status :' + data.status + ' User :' + data.username);
+        alert('user exists');
     }
 
 });

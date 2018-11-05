@@ -2,34 +2,38 @@ var socket = io.connect('192.168.0.63:4000');
 window.onload = test();
 var send = document.getElementById('send');
 
-
+window.setInterval(function(){
+    var last = getCookie("last");
+    var id = getCookie("chat");
+    socket.emit('refresh',{
+        messageId : last,
+        id : id ,
+    });
+}, 5000);
 function test(){
-    var id = parseURLParams("www.conversation.html?id=23");
+    document.getElementById("textMessage").value = '';
+    var id = getCookie("chat");
     socket.emit('converse',{
         chatId : id,
     });
 }
 
-
-function parseURLParams(url) {
-    var queryStart = url.indexOf("?") + 1,
-        queryEnd   = url.indexOf("#") + 1 || url.length + 1,
-        query = url.slice(queryStart, queryEnd - 1),
-        pairs = query.replace(/\+/g, " ").split("&"),
-        parms = {}, i, n, v, nv;
-
-    if (query === url || query === "") return;
-
-    for (i = 0; i < pairs.length; i++) {
-        nv = pairs[i].split("=", 2);
-        n = decodeURIComponent(nv[0]);
-        v = decodeURIComponent(nv[1]);
-
-        if (!parms.hasOwnProperty(n)) parms[n] = [];
-        parms[n].push(nv.length === 2 ? v : null);
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
     }
-    return parms['id'][0];
-};
+    return "";
+}
+
 socket.on('conversePopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("converseWrapper").innerHTML = '';
@@ -52,11 +56,20 @@ socket.on('conversePopulate',function (data) {
         }
         document.getElementById("converseWrapper").appendChild(div);
     }
+    var last = data.result[data.result.length-1]['messageID'];
+    setCookie("last", last, 5);
+    window.scrollBy(0, 1000); console.log('start');
 });
-
+function start_scroll_down() {
+    scroll = setInterval(function(){ window.scrollBy(0, 1000); console.log('start');}, 1500);
+}
+function stop_scroll_down() {
+    clearInterval(scroll);
+    console.log('stop');
+}
 send.addEventListener('click',function(){
     var message = document.getElementById('textMessage').value;
-    var id = parseURLParams("www.conversation.html?id=23");
+    var id = getCookie("chat");
     if(message != ''){
         socket.emit('insertMessage',{
             chatId : id,
@@ -73,3 +86,4 @@ send.addEventListener('click',function(){
     document.getElementById("textMessage").value = '';
 
 });
+

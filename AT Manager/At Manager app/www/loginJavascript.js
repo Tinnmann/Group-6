@@ -1,3 +1,7 @@
+window.onload = sessionChecker();
+function sessionChecker(){
+
+}
 //making a connection
 var socket = io.connect('192.168.0.63:4001');
 

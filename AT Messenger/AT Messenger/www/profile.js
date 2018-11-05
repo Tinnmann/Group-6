@@ -12,7 +12,7 @@ window.onload = profileLoader();
 
 function profileLoader() {
     socket.emit('profileLoad', {
-        id: 1,
+        id: getCookie("id"),
     });
 }
 
@@ -46,6 +46,7 @@ save.addEventListener('click', function () {
             socket.emit('profileUpdate', {
                 id: 1,
                 email: email.value,
+                profileAdrress : profileAddress.value,
                 profileCell: profileCell.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
@@ -66,6 +67,7 @@ save.addEventListener('click', function () {
                 id: 1,
                 email: email.value,
                 profileCell: profileCell.value,
+                profileAdrress : profileAddress.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
                 
@@ -90,13 +92,22 @@ save.addEventListener('click', function () {
 });
 
 logout.addEventListener('click', function () {
+    cookieDestroy('id',getCookie("id"),-3);
     window.location = 'index.html';
 });
+
+function cookieDestroy(cname,cvalue,exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
 socket.on('profilePopulate', function (data) {
     profileName.value = data.result[0]['client_name'];
     profileSurname.value = data.result[0]['surname'];
-    profileCell.value = data.result[0]['address'];
+    profileAddress.value = data.result[0]['address'];
+    profileCell.value = data.result[0]['cell'];
     email.value = data.result[0]['email'];
 });
 
