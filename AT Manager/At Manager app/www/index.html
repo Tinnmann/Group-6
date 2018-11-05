@@ -10,35 +10,38 @@
 </head>
 
 <body class="bodyBackground">
-<div class="container py-sm-5">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-6 col-9">
-            <div class="col-12 text-center">
-                <img class="logo" src="images/ATeamLogo.png">
-            </div>
-            <form>
-                <div class="row justify-content-center">
-                    <div class="col-12 pt-4">
-                        <input id="username" type="text" placeholder="username" class="form-control text-center"/>
-                    </div>
-
-                    <div class="col-12 pt-4">
-                        <input id="password" type="password" placeholder="password" class="form-control text-center"/>
-                    </div>
-                    
-                    <!--Login Error Message-->
-                    <div class="col-12 pt-4 text-center" id="loginError">
-                    </div>
-
-                    <div class="col-12 pt-4 text-center">
-                        <a id="login" class="btn btn-primary">login</a>
-                    </div>
+    <div class="container py-sm-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6 col-9">
+                <div class="col-12 text-center">
+                    <img class="logo" src="images/ATeamLogo.png">
                 </div>
-            </form>
+
+                <!--Creates the fields for input-->
+                <form>
+                    <div class="row justify-content-center">
+                        <div class="col-12 pt-4">
+                            <input id="username" type="text" placeholder="username" class="form-control text-center" />
+                        </div>
+
+                        <div class="col-12 pt-4">
+                            <input id="password" type="password" placeholder="password" class="form-control text-center" />
+                        </div>
+
+                        <!--The div where the error message is displayed-->
+                        <div class="col-12 pt-4 text-center" id="loginError">
+                        </div>
+
+                        <!--The login button-->
+                        <div class="col-12 pt-4 text-center">
+                            <a id="login" class="btn btn-primary">login</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-<script src="loginJavascript.js"></script>
+    <script src="loginJavascript.js"></script>
 </body>
 
 </html>

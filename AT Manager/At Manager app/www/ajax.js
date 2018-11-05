@@ -5,7 +5,8 @@ var body = document.getElementById("body"),
 var admin = document.getElementById('admin'),
     chats = document.getElementById('chats'),
     calender = document.getElementById('calender');
-//click events
+
+//Controls the line under the navbar
     admin.addEventListener('click',function(){
         adminPage();
         document.getElementById('chatTab').classList.remove("active");
@@ -24,6 +25,7 @@ var admin = document.getElementById('admin'),
         document.getElementById('chatTab').classList.remove("active");
         document.getElementById('calTab').classList.add("active");
     });
+
 //ajax requests
     function chatsPage(){
         $.ajax({

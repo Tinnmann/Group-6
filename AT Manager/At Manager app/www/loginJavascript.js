@@ -25,7 +25,8 @@ socket.on('manLoginresponse',function (data) {
     if(data.status == 'accepted'){
         window.location = "layout.html";
     }else{
-        document.getElementById("loginError").innerHTML = 'Username Or Password Incorrect';
+//Display error code
+        document.getElementById("loginError").innerHTML = '<div class="alert alert-danger text-center"><strong>Username Or Password Incorrect</strong></div>';
     }
 
 });

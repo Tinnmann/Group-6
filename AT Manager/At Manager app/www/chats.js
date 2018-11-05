@@ -5,10 +5,12 @@ function chatLoader(){
     socket.emit('manChatLoad',{
     });
 }
+
 window.setInterval(function(){
     socket.emit('manChatLoad',{
     });
 }, 10000);
+
 socket.on('chatPopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("chatContainer").innerHTML = '';
@@ -38,6 +40,7 @@ socket.on('chatPopulate',function (data) {
         document.getElementById("chatContainer").appendChild(div);
     }
 });
+
 function test(id){
     setCookie("chat", id, 5);
     $.ajax({

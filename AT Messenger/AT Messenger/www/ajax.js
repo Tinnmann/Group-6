@@ -3,6 +3,7 @@ var tickets = document.getElementById('tickets'),
     profile = document.getElementById('profile');
 
 //click events
+//Controls where the line is on the navbar
     tickets.addEventListener('click',function(){
         mainPage();
         document.getElementById('profileTab').classList.remove("active");
