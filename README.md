@@ -29,6 +29,18 @@ Starting Sequence
         phonegap serve --port 8000
         {D:\Programs\Xampp\htdocs\Group-6\AT Messenger\AT Messenger>phonegap serve --port 8000}
         
+        
+    For Presentation Day
+    
+        cd Project/Group-6/AT-Socket/
+        nodemon
+        
+        cd Project/Group-6/AT\ Manager/At\ Manager\ app/
+        phonegap serve --port 3000
+        
+        cd Project/Group-6/AT\ Messenger/AT\ Messenger/
+        
+        
 socket cheat sheet
     io.on('connect', onConnect);
     
