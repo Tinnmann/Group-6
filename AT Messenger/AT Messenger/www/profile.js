@@ -55,6 +55,9 @@ save.addEventListener('click', function () {
             //Inserts success feedback message
             document.getElementById("saveMessage").innerHTML = '<div class="alert alert-success text-center"><strong>Changes Saved</strong></div>';
         }
+        else {
+            document.getElementById("saveMessage").innerHTML = '<div class="alert alert-danger text-center">'+errorMessage+'</div>';
+        }
     }
 
     //if the password field is visible
@@ -81,15 +84,12 @@ save.addEventListener('click', function () {
 
             //Inserts success feedback message
             document.getElementById("pwArea").innerHTML = '<div class="alert alert-success text-center"><strong>Changes Saved</strong></div>';
+            document.getElementById("saveMessage").innerHTML = '';
+        }
+        else{
+            document.getElementById("saveMessage").innerHTML = '<div class="alert alert-danger text-center">'+errorMessage+'</div>';
         }
     }
-
-    //if there are any errors, display them in an error message
-    if (!nameError || !surError || !cellError || !emailError || !addressError || !passwordError) {
-        //Inserts success feedback message
-        document.getElementById("saveMessage").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
-    }
-
 });
 
 //logout of app
@@ -122,7 +122,7 @@ function validateName() {
         errorMessage += "Name must be less than 20 characters <br>";
         document.getElementById("profileName").style.backgroundColor = "#ffaaaa";
         return false;
-    } else if (profileName.value === "" || profileName.value.match(valid)) {
+    } else if (profileName.value === "" || !profileName.value.match(valid)) {
         errorMessage += "Please enter name <br>";
         document.getElementById("profileName").style.backgroundColor = "#ffaaaa";
         return false;

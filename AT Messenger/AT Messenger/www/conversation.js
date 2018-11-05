@@ -87,4 +87,3 @@ send.addEventListener('click',function(){
     document.getElementById("textMessage").value = '';
 
 });
-
