@@ -15,6 +15,8 @@ var nameed = document.getElementById('name'),
 
 //emit event
 register.addEventListener('click', function () {
+    
+    //runs each validation function
     errorMessage = "";
     var nameError = validateName();
     var surError = validateSurname();
@@ -22,9 +24,10 @@ register.addEventListener('click', function () {
     var emailError = validateEmail();
     var addressError = validateAddress();
     var pwError = validatePw();
+    
+    //checks if all fields are correct
     if (nameError && surError && cellError && emailError && addressError && pwError) {
         var cellNumberNoSpace = cellNumber.value.split(' ').join('');
-        // alert(nameed.value);
         socket.emit('register', {
             name: nameed.value,
             surname: surname.value,
@@ -35,12 +38,12 @@ register.addEventListener('click', function () {
         });
     }
     if (!nameError || !surError || !cellError || !emailError || !addressError || !pwError) {
-        //Inserts success feedback message
+        //Inserts error feedback message
         document.getElementById("regError").innerHTML = '<div class="alert alert-danger text-center"><strong>' + errorMessage + '</strong></div>';
     }
 });
 
-//Check all fields
+//checks the name field
 function validateName() {
     var valid = /^[a-zA-Z -]+$/;
     if (nameed.value === "" || !nameed.value.match(valid)) {
@@ -53,6 +56,7 @@ function validateName() {
     }
 }
 
+//checks the surname field
 function validateSurname() {
     var valid = /^[a-zA-Z -]+$/;
     if (surname.value === "" || !surname.value.match(valid)) {
@@ -65,6 +69,7 @@ function validateSurname() {
     }
 }
 
+//checks the cell field
 function validateCell() {
     var validCell = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     var cellNumberNoSpace = cellNumber.value.split(' ').join('');
@@ -78,6 +83,7 @@ function validateCell() {
     }
 }
 
+//checks the email field
 function validateEmail() {
     var emailAddress = email.value;
     var valid = emailAddress.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/);
@@ -95,6 +101,7 @@ function validateEmail() {
     }
 }
 
+//checks the address field
 function validateAddress() {
     if (address.value === "") {
         errorMessage += "Please enter address <br>";
@@ -106,6 +113,7 @@ function validateAddress() {
     }
 }
 
+//checks the password fields
 function validatePw() {
     var pw1 = password1.value;
     var pw2 = password2.value;

@@ -25,6 +25,7 @@ pwEdit.addEventListener('click', function () {
         '<div class="col-12" style="color: #878386">re-enter password</div><div class="col-12"><input id="pw2" class="profileField w-100" type="password" placeholder="re-enter password" /></div>';
 });
 
+//validates and saves the data in the profile window
 save.addEventListener('click', function () {
 
     //checks if password fields are visible or not
@@ -91,11 +92,13 @@ save.addEventListener('click', function () {
     
 });
 
+//logout of app
 logout.addEventListener('click', function () {
     cookieDestroy('id',getCookie("id"),-3);
     window.location = 'index.html';
 });
 
+//destroys the cookie
 function cookieDestroy(cname,cvalue,exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -103,6 +106,7 @@ function cookieDestroy(cname,cvalue,exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+//populates the profile window
 socket.on('profilePopulate', function (data) {
     profileName.value = data.result[0]['client_name'];
     profileSurname.value = data.result[0]['surname'];
@@ -111,7 +115,7 @@ socket.on('profilePopulate', function (data) {
     email.value = data.result[0]['email'];
 });
 
-//Check all fields
+//validates the name field
 function validateName() {
     if (profileName.value === "") {
         errorMessage += "Please enter name <br>";
@@ -123,6 +127,7 @@ function validateName() {
     }
 }
 
+//validate the surname field
 function validateSurname() {
     if (profileSurname.value === "") {
         errorMessage += "Please enter last name <br>";
@@ -134,6 +139,7 @@ function validateSurname() {
     }
 }
 
+//validates the cell field
 function validateCell() {
     var validCell = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if (profileCell.value.match(validCell)) {
@@ -146,6 +152,7 @@ function validateCell() {
     }
 }
 
+//validates the email field
 function validateEmail() {
     var emailAddress = email.value;
     var valid = emailAddress.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})$/);
@@ -163,6 +170,7 @@ function validateEmail() {
     }
 }
 
+//validates the address field
 function validateAddress() {
     if (profileAddress.value === "") {
         errorMessage += "Please enter address <br>";
@@ -174,6 +182,7 @@ function validateAddress() {
     }
 }
 
+//validates the password fields
 function validatePw() {
     var pw1 = document.getElementById('pw1').value;
     var pw2 = document.getElementById('pw2').value;
