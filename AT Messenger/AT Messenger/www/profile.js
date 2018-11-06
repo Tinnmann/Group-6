@@ -45,7 +45,7 @@ save.addEventListener('click', function () {
         //if there are no errors then continue to update the client details
         if (nameError && surError && cellError && emailError && addressError) {
             socket.emit('profileUpdate', {
-                id: 1,
+                id: getCookie("id"),
                 email: email.value,
                 profileAdrress: profileAddress.value,
                 profileCell: profileCell.value,
@@ -67,13 +67,14 @@ save.addEventListener('click', function () {
 
         //if there are no errors then contine to update the client details
         if (nameError && surError && cellError && emailError && addressError && passwordError) {
-            socket.emit('profileUpdate', {
-                id: 1,
+            socket.emit('profileUpdatePass', {
+                id: getCookie("id"),
                 email: email.value,
                 profileCell: profileCell.value,
                 profileAdrress: profileAddress.value,
                 profileSurname: profileSurname.value,
                 profileName: profileName.value,
+                profilePass: document.getElementById('pw1').value,
 
             });
 

@@ -155,9 +155,26 @@ con.connect(function (err) {
             var id = data.id,
                 email = data.email ,
                 profileCell = data.profileCell ,
+                profileAddress = data.profileAdrress,
                 profileSurname = data.profileSurname ,
                 profileName = data.profileName;
-            con.query("UPDATE client SET client_name  = '"+profileName+"' , surname   = '"+profileSurname+"' , email = '"+email+"' ,  address  = '"+profileCell+"' WHERE clientID = '"+id+"'", function (err, result) {
+            con.query("UPDATE client SET client_name  = '"+profileName+"' , surname   = '"+profileSurname+"' , cell   = '"+profileCell+"' , email = '"+email+"' ,  address  = '"+profileAddress+"' WHERE clientID = '"+id+"'", function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else{
+
+                }
+            });
+        });
+        socket.on('profileUpdatePass',function(data){
+            var id = data.id,
+                email = data.email ,
+                profileCell = data.profileCell ,
+                profileAddress = data.profileAdrress,
+                profileSurname = data.profileSurname ,
+                profileName = data.profileName,
+                profilePass = data.profilePass;
+            con.query("UPDATE client SET client_name  = '"+profileName+"' , surname   = '"+profileSurname+"' , cell   = '"+profileCell+"' , email = '"+email+"' ,  address  = '"+profileAddress+"',  password   = '"+profilePass+"' WHERE clientID = '"+id+"'", function (err, result) {
                 if (err) {
                     console.log(err);
                 } else{
@@ -252,13 +269,40 @@ con.connect(function (err) {
         manSocket.on('converse',function(data){
             console.log(data.chatId);
             var chatId = data.chatId;
+            var cat;
+            var stat;
+            var cats;
+            con.query("SELECT * FROM chat WHERE chatId ='"+ chatId + "' ", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    console.log('chat test');
+                    cat = result[0]['catName'];
+                    stat = result[0]['status'];
+                } else {
+                    console.log("Query didn't return any results.");
+                    console.log(result);
+                }
+            });
+            con.query("SELECT * FROM category ", function (err, result, fields) {
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    cats = result;
+                } else {
+                    console.log("Query didn't return any results.");
+                }
+                // socket.emit('response',{status: status, username: username ,password: password});
+            });
             con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
                 if (err) {
                     console.log(err);
                 } else if (result.length) {
                     status = "accepted";
                     console.log('query accepted');
-                    manSocket.emit('conversePopulate',{result: result});
+                    manSocket.emit('conversePopulate',{result: result, status : stat, cat: cat, cats: cats});
                 } else {
                     console.log("Query didn't return any results.");
                     console.log(result);
@@ -349,6 +393,28 @@ con.connect(function (err) {
                     manSocket.emit('getDateArray',{result: result});
                 } else {
                     console.log("Query didn't return any results.");
+                }
+            });
+        });
+        manSocket.on('updateCategory',function(data){
+            var id = data.id,
+                cat = data.cat;
+            con.query("UPDATE chat SET catName   = '"+cat+"' WHERE chatID  = '"+id+"'", function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else{
+
+                }
+            });
+        });
+        manSocket.on('updateCategoryStatus',function(data){
+            var id = data.id,
+                change = data.change;
+            con.query("UPDATE chat SET status   = '"+change+"' WHERE chatID  = '"+id+"'", function (err, result) {
+                if (err) {
+                    console.log(err);
+                } else{
+
                 }
             });
         });

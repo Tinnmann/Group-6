@@ -5,6 +5,11 @@ function chatLoader(){
     socket.emit('chatLoad',{
     });
 }
+window.setInterval(function(){
+    socket.emit('chatLoad',{
+        id : getCookie("id"),
+    });
+}, 10000);
 socket.on('chatPopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("chatContainer").innerHTML = '';
@@ -22,6 +27,9 @@ socket.on('chatPopulate',function (data) {
             '            <div class="col-9 my-auto">\n' +
             '                <div class="contactName col-12 pl-0">\n' +
                                 data.result[i]['sent'] +
+            '                </div>\n' +
+            '                <div class="contactName col-12 pl-0">\n' +
+            'status : ' +data.result[i]['status'] +
             '                </div>\n' +
             '                <div class="categoryName col-12 pl-0">\n' +
                                 data.result[i]['catName'] +
