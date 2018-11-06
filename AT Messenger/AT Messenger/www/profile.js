@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4000');
+var socket = io.connect('192.168.8.2:4000');
 var logout = document.getElementById('logout'),
     save = document.getElementById('save'),
     pwEdit = document.getElementById('pwChange'),

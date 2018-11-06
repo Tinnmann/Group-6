@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4001');
+var socket = io.connect('192.168.8.2:4001');
 window.onload = chatLoader();
 
 function chatLoader(){
@@ -42,6 +42,7 @@ socket.on('chatPopulate',function (data) {
         document.getElementById("chatContainer").appendChild(div);
     }
 });
+
 function test(id){
     setCookie("chat", id, 5);
     $.ajax({

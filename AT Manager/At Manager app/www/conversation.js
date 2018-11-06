@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.0.63:4001');
+var socket = io.connect('192.168.8.2:4001');
 window.onload = test();
 var send = document.getElementById('send');
 
@@ -58,14 +58,14 @@ socket.on('conversePopulate',function (data) {
         var div = document.createElement('div');
         if(data.result[i]['sender'] == 1){
             div.innerHTML = '<div class="row">\n' +
-                '                <div class="receiver col-5 p-5">\n' +
+                '                <div class="receiver col-5 p-3">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +
                 '                </div>\n' +
                 '                <div class="col-6"></div>\n' +
                 '            </div>';
         }else{
             div.innerHTML = '<div  class="row"> <div class="col"></div>\n' +
-                '                <div class="sender col-6 p-5">\n' +
+                '                <div class="sender col-6 p-3">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +
                 '                </div> </div>';
 

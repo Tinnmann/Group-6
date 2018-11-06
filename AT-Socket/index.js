@@ -5,7 +5,7 @@ var div;//=document.getElementById('schedule');
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "",
+    password: "root",
     database: "at"
 });
 con.connect(function (err) {

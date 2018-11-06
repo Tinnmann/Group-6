@@ -1,6 +1,6 @@
 
 //making a connection
-var socket = io.connect('192.168.0.63:4001');
+var socket = io.connect('192.168.8.2:4001');
 
 // getting dom
 var username = document.getElementById('username'),
@@ -23,7 +23,7 @@ socket.on('manLoginresponse',function (data) {
         setCookie("id", data.username, 1);
         window.location = "layout.html";
     }else{
-        document.getElementById("loginError").innerHTML = 'Username Or Password Incorrect';
+        document.getElementById("loginError").innerHTML = '<div class="alert alert-danger text-center"><strong>Username Or Password Incorrect</strong></div>';
     }
 
 });
