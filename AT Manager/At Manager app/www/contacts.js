@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.8.2:4001');
+var socket = io.connect('10.0.0.6:4001');
 window.onload = contactsLoader();
 function contactsLoader(){
     socket.emit('contactsLoader');
@@ -19,7 +19,7 @@ socket.on('contactPopulate',function (data) {
                 '</div>' +
             '</div>' +
                 '<div class="col-9 my-auto">' +
-                    '<div class="contactName col-12 pl-0" ><input disabled type="text" id="name'+data.result[i]['clientID']+'" value="'+name+'" style="border: none"></input></div>' +
+                    '<div class="contactName col-12 pl-0" ><input disabled type="text" id="name'+data.result[i]['clientID']+'" value="'+name+'" ></input></div>' +
                     '<div class="categoryName col-12 pl-0">'+data.result[i]['email']+'</div>' +
                     '<div class="categoryName col-12 pl-0">'+data.result[i]['address']+'</div>' +
                 '</div>' +

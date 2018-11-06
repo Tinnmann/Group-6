@@ -1,11 +1,12 @@
 //database
 var mysql = require('mysql');
-
+// var dateArray = [];
+var div;//=document.getElementById('schedule');
 var con = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "root",
-    database: "at"
+    password: "",
+    database: "at1"
 });
 con.connect(function (err) {
     if (err) throw err;
@@ -59,7 +60,6 @@ con.connect(function (err) {
                 name = data.name,
                 surname = data.surname,
                 cellNumber = data.cellNumber,
-                address = data.address,
                 email = data.email,
                 password1 = data.password1;
             console.log(data);
@@ -70,7 +70,7 @@ con.connect(function (err) {
                     status = 'user exists';
                     socket.emit('insertResponse',{status: status});
                 } else {
-                    var sql = "INSERT INTO client (client_name , surname, email, cell ,address ,password ) VALUES ('"+name+"','"+surname+"','"+email+"','"+cellNumber+"','"+address+"','"+password1+"')";
+                    var sql = "INSERT INTO client (client_name , surname, email ,address ,password ) VALUES ('"+name+"','"+surname+"','"+email+"','"+cellNumber+"','"+password1+"')";
                     con.query(sql, function (err, result) {
                         if (err) {
                             console.log(err);
@@ -118,8 +118,7 @@ con.connect(function (err) {
                         } else{
                             status = 'inserted';
                             console.log(status + "insert test 2");
-
-                            socket.emit('logResponse',{result: insertedId});
+                            insertedId = result.insertId;
                         }
                     });
                 }
@@ -157,33 +156,14 @@ con.connect(function (err) {
                 email = data.email ,
                 profileCell = data.profileCell ,
                 profileSurname = data.profileSurname ,
-                profileName = data.profileName,
-                profileAddress = data.profileAdrress;
-            con.query("UPDATE client SET client_name  = '"+profileName+"' , surname   = '"+profileSurname+"' , email = '"+email+"' ,  address  = '"+profileAddress+"',  cell  = '"+profileCell+"' WHERE clientID = '"+id+"'", function (err, result) {
+                profileName = data.profileName;
+            con.query("UPDATE client SET client_name  = '"+profileName+"' , surname   = '"+profileSurname+"' , email = '"+email+"' ,  address  = '"+profileCell+"' WHERE clientID = '"+id+"'", function (err, result) {
                 if (err) {
                     console.log(err);
                 } else{
 
                 }
             });
-        });
-        socket.on('refresh',function(data){
-            console.log(data);
-            var chatId = data.id,
-                messageID = data.messageId;
-            con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
-                if (err) {
-                    console.log(err);
-                } else if (result.length) {
-                    status = "accepted";
-                    console.log('query accepted');
-                    socket.emit('conversePopulate',{result: result});
-                } else {
-                    console.log("Query didn't return any results.");
-                    console.log(result);
-                }
-            });
-
         });
         socket.on('converse',function(data){
             console.log(data.chatId);
@@ -257,25 +237,7 @@ con.connect(function (err) {
                 // socket.emit('response',{status: status, username: username ,password: password});
             });
         });
-        manSocket.on('refresh',function(data){
-            console.log(data);
-            var chatId = data.id,
-                messageID = data.messageId;
-            con.query("SELECT * FROM message WHERE chatId ='"+ chatId + "' ORDER BY msg_date_time", function (err, result, fields) {
-                if (err) {
-                    console.log(err);
-                } else if (result.length) {
-                    status = "accepted";
-                    console.log('query accepted');
-                    manSocket.emit('conversePopulate',{result: result});
-                } else {
-                    console.log("Query didn't return any results.");
-                    console.log(result);
-                }
-            });
-
-        });
-        manSocket.on('manChatLoad',function(data){
+        manSocket.on('chatLoad',function(data){
             con.query("SELECT * FROM chat ORDER BY date_set DESC", function (err, result, fields) {
                 if (err) {
                     console.log(err);
@@ -283,7 +245,7 @@ con.connect(function (err) {
                     status = "accepted";
                     manSocket.emit('chatPopulate',{result: result});
                 } else {
-                    console.log("Manager Query didn't return any results.");
+                    console.log("Query didn't return any results.");
                 }
             });
         });
@@ -344,13 +306,16 @@ con.connect(function (err) {
         });
         manSocket.on('scheduleLoad',function(data){
             console.log('insert date = ' + data.date );
+            var name = data.name,
+                time = data.time;
+            // var div=document.getElementById('schedule');
             con.query("SELECT * FROM calendar WHERE setDate ='"+ data.date + "' ORDER BY setDate", function (err, result, fields) {
                 if (err) {
                     console.log(err);
                 } else if (result.length) {
                     status = "accepted";
                     console.log('query accepted');
-                    manSocket.emit('shedulePopulate',{result: result});
+                    manSocket.emit('shedulePopulate',{result: result,});
                 } else {
                     console.log("Query didn't return any results.");
                     console.log(result);
@@ -358,17 +323,32 @@ con.connect(function (err) {
             });
         });
         manSocket.on('requestDays',function(data){
-            console.log('insert date = ' + data.date );
-            con.query("SELECT * FROM calendar ORDER BY setDate", function (err, result, fields) {
+            // console.log('Array dates = ' + data.days );
+            con.query("SELECT setDate FROM calendar ORDER BY setDate", function (err, result, fields) {
                 if (err) {
                     console.log(err);
                 } else if (result.length) {
                     status = "accepted";
-                    console.log('query accepted');
-                    manSocket.emit('dayPopulate',{result: result});
+                    // console.log('query accepted');
+                    manSocket.emit('dayPopulate',{result: result, days: data.days});
                 } else {
                     console.log("Query didn't return any results.");
                     console.log(result);
+                }
+            });
+        });
+        manSocket.on('setDateArray',function(data){
+            // console.log('Date Array = ');
+            con.query("SELECT * FROM calendar", function (err, result, fields) {
+                // console.log(result);
+                if (err) {
+                    console.log(err);
+                } else if (result.length) {
+                    status = "accepted";
+                    console.log(status);
+                    manSocket.emit('getDateArray',{result: result});
+                } else {
+                    console.log("Query didn't return any results.");
                 }
             });
         });

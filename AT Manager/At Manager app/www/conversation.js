@@ -1,24 +1,14 @@
-var socket = io.connect('192.168.8.2:4001');
+var socket = io.connect('10.0.0.6:4001');
 window.onload = test();
 var send = document.getElementById('send');
 
 
 function test(){
-    document.getElementById("textMessage").value = '';
     var id = getCookie("chat");
     socket.emit('converse',{
         chatId : id,
     });
 }
-
-window.setInterval(function(){
-    var last = getCookie("last");
-    var id = getCookie("chat");
-    socket.emit('refresh',{
-        messageId : last,
-        id : id ,
-    });
-}, 5000);
 
 function getCookie(cname) {
     var name = cname + "=";
@@ -44,22 +34,20 @@ socket.on('conversePopulate',function (data) {
         var div = document.createElement('div');
         if(data.result[i]['sender'] == 1){
             div.innerHTML = '<div class="row">\n' +
-                '                <div class="receiver col-5 p-3">\n' +
+                '                <div class="receiver col-5 p-5">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +
                 '                </div>\n' +
                 '                <div class="col-6"></div>\n' +
                 '            </div>';
         }else{
             div.innerHTML = '<div  class="row"> <div class="col"></div>\n' +
-                '                <div class="sender col-6 p-3">\n' +
+                '                <div class="sender col-6 p-5">\n' +
                 '                    <p>'+data.result[i]['message']+'</p>\n' +
                 '                </div> </div>';
 
         }
         document.getElementById("converseWrapper").appendChild(div);
     }
-    var last = data.result[data.result.length-1]['messageID'];
-    setCookie("last", last, 5);
 });
 
 send.addEventListener('click',function(){
@@ -77,5 +65,5 @@ send.addEventListener('click',function(){
             '                </div> </div>';
         document.getElementById("converseWrapper").appendChild(div);
     }
-    document.getElementById("textMessage").value = '';
+
 });

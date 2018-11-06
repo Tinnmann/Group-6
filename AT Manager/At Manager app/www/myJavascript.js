@@ -1,5 +1,5 @@
 //making a connection
-var socket = io.connect('172.25.41.97:4000');
+var socket = io.connect('10.0.0.6:4001');
 
 // getting dom
 var status = 'error',

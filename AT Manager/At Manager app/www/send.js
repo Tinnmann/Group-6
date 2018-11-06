@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.8.2:4000');
+var socket = io.connect('10.0.0.6:4001');
 var logTicketButton = document.getElementById('logTicket');
 var msg = document.getElementById('message');
 var errorMessage = "";
@@ -22,7 +22,7 @@ function getCookie(cname) {
 logTicketButton.addEventListener('click', function(){
     errorMessage = "";
     var msgError = validateMsg();
-    
+
     if(catError && msgError){
         socket.emit('manSend',{
             message : msg.value,

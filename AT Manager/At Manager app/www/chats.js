@@ -1,16 +1,10 @@
-var socket = io.connect('192.168.8.2:4001');
+var socket = io.connect('10.0.0.6:4001');
 window.onload = chatLoader();
 
 function chatLoader(){
-    socket.emit('manChatLoad',{
+    socket.emit('chatLoad',{
     });
 }
-
-window.setInterval(function(){
-    socket.emit('manChatLoad',{
-    });
-}, 10000);
-
 socket.on('chatPopulate',function (data) {
     if(data.result.length> 0){
         document.getElementById("chatContainer").innerHTML = '';
@@ -40,7 +34,6 @@ socket.on('chatPopulate',function (data) {
         document.getElementById("chatContainer").appendChild(div);
     }
 });
-
 function test(id){
     setCookie("chat", id, 5);
     $.ajax({
