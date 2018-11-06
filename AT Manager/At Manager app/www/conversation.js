@@ -1,4 +1,4 @@
-var socket = io.connect('10.0.0.6:4001');
+var socket = io.connect('192.168.0.63:4001');
 window.onload = test();
 var send = document.getElementById('send');
 

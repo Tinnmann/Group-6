@@ -30,7 +30,7 @@ function setCookie(cname,cvalue,exdays) {
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 //making a connection
-var socket = io.connect('192.168.8.2:4000');
+var socket = io.connect('192.168.0.63:4000');
 
 // getting dom
 var username = document.getElementById('username'),

@@ -1,4 +1,4 @@
-var socket = io.connect('192.168.8.2:4000');
+var socket = io.connect('192.168.0.63:4000');
 window.onload = chatLoader();
 
 function chatLoader(){
